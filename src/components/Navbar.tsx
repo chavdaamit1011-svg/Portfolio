@@ -8,71 +8,93 @@ interface NavbarProps {
 }
 
 export default function Navbar({ theme, toggleTheme }: NavbarProps) {
-  const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const navItems = [
-    { path: '/', label: 'Home', icon: 'bi-house-door-fill' },
-    { path: '/about', label: 'About', icon: 'bi-person-fill' },
-    { path: '/services', label: 'Services', icon: 'bi-gear-fill' },
-    { path: '/projects', label: 'Projects', icon: 'bi-grid-fill' },
-    { path: '/contact', label: 'Contact', icon: 'bi-envelope-fill' },
-  ]
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
 
   return (
-    <header className="fixed-top w-100 z-50 py-2.5 px-2 px-md-3">
-      <div className="container-fluid max-w-7xl px-2 px-md-4">
-        {/* Main Navbar Bar Wrapper */}
-        <div
-          className="d-flex align-items-center justify-content-between px-3 py-2 rounded-pill shadow-sm"
-          style={{
-            background: 'var(--nav-bg, rgba(18, 20, 29, 0.75))',
-            backdropFilter: 'blur(20px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-            border: '1px solid var(--card-border, rgba(255, 255, 255, 0.12))',
-            transition: 'all 0.3s ease',
-          }}
-        >
-          {/* LEFT: Brand Logo Image (logo1.png) */}
+    <header className="fixed-top w-100 z-50 py-2 py-md-3">
+      <div className="container px-3 px-lg-4">
+        {/* Main Flex Navbar Row */}
+        <div className="d-flex align-items-center justify-content-between py-1">
+          
+          {/* PART 1: LEFT SIDE (Brand Logo Image - logo1.png) */}
           <NavLink
             className="navbar-brand p-0 m-0 d-flex align-items-center position-relative"
             to="/"
             title="Amit Chavda Portfolio"
-            onClick={() => setIsMobileOpen(false)}
-            style={{ height: '36px', overflow: 'visible' }}
+            onClick={closeMobileMenu}
+            style={{ height: '42px', minWidth: '140px', overflow: 'visible' }}
           >
             <img
               src={logo1}
               alt="Logo"
               className="brand-logo-img"
               style={{
-                height: '36px',
+                height: '42px',
                 width: 'auto',
                 objectFit: 'contain',
-                transform: 'scale(1.7)',
+                transform: 'scale(2.2)',
                 transformOrigin: 'left center',
                 transition: 'transform 0.3s ease',
               }}
             />
           </NavLink>
 
-          {/* CENTER: Floating Inner Glass Dock (Desktop >= 992px) */}
+          {/* PART 2: CENTER (Floating Inner Glass Dock for Multi-Page Navigation Links - Desktop) */}
           <div className="d-none d-lg-block">
             <ul className="nav flex-row align-items-center gap-1 glass-nav-dock mb-0 list-unstyled">
-              {navItems.map((item) => (
-                <li key={item.path} className="nav-item">
-                  <NavLink
-                    className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                    to={item.path}
-                    end={item.path === '/'}
-                  >
-                    {item.label}
-                  </NavLink>
-                </li>
-              ))}
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
+                  to="/"
+                  end
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
+                  to="/about"
+                >
+                  About
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
+                  to="/services"
+                >
+                  Services
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
+                  to="/projects"
+                >
+                  Projects
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
+                  to="/contact"
+                >
+                  Contact
+                </NavLink>
+              </li>
             </ul>
           </div>
 
-          {/* RIGHT SIDE: Theme Toggle & Mobile Hamburger */}
+          {/* PART 3: RIGHT SIDE (Theme Toggle Button & Custom Animated Hamburger) */}
           <div className="d-flex align-items-center gap-2">
             <label className="themeToggle st-sunMoonThemeToggleBtn" htmlFor="themeToggleBtn">
               <input
@@ -99,34 +121,59 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
               </svg>
             </label>
 
-            {/* Mobile Hamburger Toggler Button (< 992px) */}
+            {/* Custom Interactive Hamburger Button */}
             <button
-              className="btn btn-link text-custom-heading p-1.5 border-0 shadow-none d-lg-none d-flex align-items-center justify-content-center"
+              className={`hamburger-toggle-btn d-lg-none ${isMobileMenuOpen ? 'active' : ''}`}
               type="button"
-              onClick={() => setIsMobileOpen(!isMobileOpen)}
-              aria-label="Toggle navigation"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle Mobile Navigation"
+              title="Toggle Menu"
             >
-              <i className={`bi ${isMobileOpen ? 'bi-x-lg' : 'bi-list'} fs-3 text-cyan transition-all`}></i>
+              <i className={`bi ${isMobileMenuOpen ? 'bi-x-lg fs-5' : 'bi-list fs-3'}`}></i>
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer Dropdown Menu */}
-        <div className={`mobile-nav-drawer d-lg-none ${isMobileOpen ? 'show' : ''}`}>
-          <div className="p-3">
+        {/* PART 4: SMOOTH ACCORDION MOBILE MENU (Inside Navbar Container, Max-Height & Opacity Animation) */}
+        <div className={`mobile-menu-accordion d-lg-none ${isMobileMenuOpen ? 'open' : ''}`}>
+          <div className="mobile-nav-glass-card">
             <nav className="d-flex flex-column gap-1">
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.path}
-                  to={item.path}
-                  end={item.path === '/'}
-                  onClick={() => setIsMobileOpen(false)}
-                  className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
-                >
-                  <i className={`bi ${item.icon} fs-5`}></i>
-                  <span>{item.label}</span>
-                </NavLink>
-              ))}
+              <NavLink
+                className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+                to="/"
+                end
+                onClick={closeMobileMenu}
+              >
+                <i className="bi bi-house-door-fill"></i> Home
+              </NavLink>
+              <NavLink
+                className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+                to="/about"
+                onClick={closeMobileMenu}
+              >
+                <i className="bi bi-person-fill"></i> About
+              </NavLink>
+              <NavLink
+                className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+                to="/services"
+                onClick={closeMobileMenu}
+              >
+                <i className="bi bi-code-slash"></i> Services
+              </NavLink>
+              <NavLink
+                className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+                to="/projects"
+                onClick={closeMobileMenu}
+              >
+                <i className="bi bi-folder-fill"></i> Projects
+              </NavLink>
+              <NavLink
+                className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+                to="/contact"
+                onClick={closeMobileMenu}
+              >
+                <i className="bi bi-envelope-fill"></i> Contact
+              </NavLink>
             </nav>
           </div>
         </div>
