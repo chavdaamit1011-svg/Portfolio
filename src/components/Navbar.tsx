@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo1 from '../assets/logo1.png'
 
@@ -8,81 +8,71 @@ interface NavbarProps {
 }
 
 export default function Navbar({ theme, toggleTheme }: NavbarProps) {
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
+
+  const navItems = [
+    { path: '/', label: 'Home', icon: 'bi-house-door-fill' },
+    { path: '/about', label: 'About', icon: 'bi-person-fill' },
+    { path: '/services', label: 'Services', icon: 'bi-gear-fill' },
+    { path: '/projects', label: 'Projects', icon: 'bi-grid-fill' },
+    { path: '/contact', label: 'Contact', icon: 'bi-envelope-fill' },
+  ]
+
   return (
-    <header className="fixed-top w-100 z-50 py-3">
-      <div className="container px-3 px-lg-4">
-        <div className="d-flex align-items-center justify-content-between py-1">
-          
-          {/* PART 1: LEFT SIDE (Brand Logo Image - logo1.png) */}
+    <header className="fixed-top w-100 z-50 py-2.5 px-2 px-md-3">
+      <div className="container-fluid max-w-7xl px-2 px-md-4">
+        {/* Main Navbar Bar Wrapper */}
+        <div
+          className="d-flex align-items-center justify-content-between px-3 py-2 rounded-pill shadow-sm"
+          style={{
+            background: 'var(--nav-bg, rgba(18, 20, 29, 0.75))',
+            backdropFilter: 'blur(20px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+            border: '1px solid var(--card-border, rgba(255, 255, 255, 0.12))',
+            transition: 'all 0.3s ease',
+          }}
+        >
+          {/* LEFT: Brand Logo Image (logo1.png) */}
           <NavLink
             className="navbar-brand p-0 m-0 d-flex align-items-center position-relative"
             to="/"
             title="Amit Chavda Portfolio"
-            style={{ height: '42px', minWidth: '160px', overflow: 'visible' }}
+            onClick={() => setIsMobileOpen(false)}
+            style={{ height: '36px', overflow: 'visible' }}
           >
             <img
               src={logo1}
               alt="Logo"
               className="brand-logo-img"
               style={{
-                height: '42px',
+                height: '36px',
                 width: 'auto',
                 objectFit: 'contain',
-                transform: 'scale(2.2)',
+                transform: 'scale(1.7)',
                 transformOrigin: 'left center',
                 transition: 'transform 0.3s ease',
               }}
             />
           </NavLink>
 
-          {/* PART 2: CENTER (Floating Inner Glass Dock for Multi-Page Navigation Links) */}
+          {/* CENTER: Floating Inner Glass Dock (Desktop >= 992px) */}
           <div className="d-none d-lg-block">
             <ul className="nav flex-row align-items-center gap-1 glass-nav-dock mb-0 list-unstyled">
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                  to="/"
-                  end
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                  to="/about"
-                >
-                  About
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                  to="/services"
-                >
-                  Services
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                  to="/projects"
-                >
-                  Projects
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                  to="/contact"
-                >
-                  Contact
-                </NavLink>
-              </li>
+              {navItems.map((item) => (
+                <li key={item.path} className="nav-item">
+                  <NavLink
+                    className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
+                    to={item.path}
+                    end={item.path === '/'}
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* PART 3: RIGHT SIDE (Uiverse SVG Theme Toggle Button) */}
+          {/* RIGHT SIDE: Theme Toggle & Mobile Hamburger */}
           <div className="d-flex align-items-center gap-2">
             <label className="themeToggle st-sunMoonThemeToggleBtn" htmlFor="themeToggleBtn">
               <input
@@ -109,67 +99,35 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
               </svg>
             </label>
 
-            {/* Mobile Toggler */}
+            {/* Mobile Hamburger Toggler Button (< 992px) */}
             <button
-              className="navbar-toggler border-0 shadow-none p-1 d-lg-none"
+              className="btn btn-link text-custom-heading p-1.5 border-0 shadow-none d-lg-none d-flex align-items-center justify-content-center"
               type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#mobileNavCollapse"
-              aria-controls="mobileNavCollapse"
-              aria-expanded="false"
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
               aria-label="Toggle navigation"
             >
-              <i className="bi bi-list fs-2 text-custom-heading"></i>
+              <i className={`bi ${isMobileOpen ? 'bi-x-lg' : 'bi-list'} fs-3 text-cyan transition-all`}></i>
             </button>
           </div>
         </div>
 
-        {/* Mobile Collapsible Navigation Menu */}
-        <div className="collapse navbar-collapse d-lg-none mt-2" id="mobileNavCollapse">
-          <div className="glass-nav-dock p-3 text-center">
-            <ul className="navbar-nav flex-column gap-2">
-              <li className="nav-item">
+        {/* Mobile Navigation Drawer Dropdown Menu */}
+        <div className={`mobile-nav-drawer d-lg-none ${isMobileOpen ? 'show' : ''}`}>
+          <div className="p-3">
+            <nav className="d-flex flex-column gap-1">
+              {navItems.map((item) => (
                 <NavLink
-                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                  to="/"
-                  end
+                  key={item.path}
+                  to={item.path}
+                  end={item.path === '/'}
+                  onClick={() => setIsMobileOpen(false)}
+                  className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
                 >
-                  Home
+                  <i className={`bi ${item.icon} fs-5`}></i>
+                  <span>{item.label}</span>
                 </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                  to="/about"
-                >
-                  About
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                  to="/services"
-                >
-                  Services
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                  to="/projects"
-                >
-                  Projects
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
-                  to="/contact"
-                >
-                  Contact
-                </NavLink>
-              </li>
-            </ul>
+              ))}
+            </nav>
           </div>
         </div>
       </div>

@@ -203,9 +203,9 @@ body {
 
 /* Center Navigation Floating Glass Dock (Inner Glass Container) */
 .glass-nav-dock {
-  background: rgba(18, 20, 29, 0.65);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(18, 20, 29, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50rem;
   box-shadow: 
@@ -217,12 +217,66 @@ body {
 }
 
 [data-theme='light'] .glass-nav-dock {
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.85);
   border-color: rgba(0, 0, 0, 0.08);
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     0 0 20px rgba(2, 132, 199, 0.1);
+}
+
+/* Mobile Nav Drawer Container */
+.mobile-nav-drawer {
+  background: rgba(18, 20, 29, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 210, 255, 0.15);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-10px);
+}
+
+[data-theme='light'] .mobile-nav-drawer {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 25px rgba(2, 132, 199, 0.1);
+}
+
+.mobile-nav-drawer.show {
+  max-height: 380px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  margin-top: 0.75rem;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--cyan-primary) !important;
+  background: rgba(0, 210, 255, 0.08);
+}
+
+[data-theme='light'] .mobile-nav-link:hover,
+[data-theme='light'] .mobile-nav-link.active {
+  background: rgba(2, 132, 199, 0.08);
 }
 
 .brand-text {
