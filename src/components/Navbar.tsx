@@ -36,6 +36,8 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
               src={logo1}
               alt="Logo"
               className="brand-logo-img"
+              loading="eager"
+              decoding="async"
               style={{
                 height: '42px',
                 width: 'auto',

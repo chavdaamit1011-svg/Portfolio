@@ -178,6 +178,8 @@ export default function About() {
                   src={heroImg}
                   alt="Amit Chavda"
                   className="profile-img-square"
+                  loading="eager"
+                  decoding="async"
                 />
                 <div className="profile-experience-badge">
                   <i className="bi bi-patch-check-fill text-cyan fs-5"></i>

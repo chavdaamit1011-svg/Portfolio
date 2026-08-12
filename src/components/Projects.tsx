@@ -108,6 +108,7 @@ export default function Projects() {
                           alt={proj.title}
                           className="project-img-preview"
                           loading="lazy"
+                          decoding="async"
                         />
                       </div>
                     </div>
