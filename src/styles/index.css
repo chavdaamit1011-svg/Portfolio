@@ -58,32 +58,48 @@
   --toggle-color: #6366f1;
 }
 
-/* Single Unified Floating Navbar Header Bar (Neumorphic Extruded Glass Surface) */
+/* Single Unified Floating Navbar Header Bar (Full Screen Transparent at top, Glass Dock on scroll) */
 .unified-navbar-bar {
-  background: rgba(12, 16, 25, 0.94);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(37, 99, 235, 0.25);
-  border-radius: 50rem;
-  box-shadow: 
-    8px 12px 30px rgba(0, 0, 0, 0.65),
-    -6px -6px 20px rgba(255, 255, 255, 0.03),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 0 25px rgba(37, 99, 235, 0.18);
+  background: transparent !important;
+  backdrop-filter: blur(0px) !important;
+  -webkit-backdrop-filter: blur(0px) !important;
+  border: 1px solid transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   transition: all 0.35s ease;
-  max-width: 920px;
+  max-width: 100% !important;
   margin: 0 auto;
-  padding: 0.25rem 1.25rem 0.25rem 0.25rem !important;
+  padding: 0.65rem 1rem !important;
 }
 
 [data-theme='light'] .unified-navbar-bar {
-  background: rgba(245, 248, 252, 0.95);
-  border-color: rgba(255, 255, 255, 0.9);
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Premium Sticky Glass Header State on Scroll */
+.unified-navbar-bar.scrolled {
+  background: rgba(12, 16, 25, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(37, 99, 235, 0.25) !important;
+  border-radius: 50rem !important;
+  max-width: 920px !important;
+  padding: 0.55rem 1.35rem 0.55rem 0.6rem !important;
   box-shadow: 
-    8px 12px 28px rgba(166, 180, 200, 0.35),
-    -8px -8px 24px rgba(255, 255, 255, 0.95),
-    inset 0 1px 0 rgba(255, 255, 255, 1),
-    0 0 20px rgba(37, 99, 235, 0.08);
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 20px rgba(37, 99, 235, 0.15) !important;
+}
+
+[data-theme='light'] .unified-navbar-bar.scrolled {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(37, 99, 235, 0.08) !important;
 }
 
 /* Brand AC Logo Wrapper (Prominent Logo Size + Bright Clear Dark Mode Filter) */
@@ -280,28 +296,7 @@ body {
   z-index: 0;
 }
 
-/* Single Unified Floating Navbar Header Bar (Frosted Glass Backdrop Blur) */
-.unified-navbar-bar {
-  background: rgba(18, 20, 29, 0.78);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 50rem;
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 0 20px rgba(0, 210, 255, 0.12);
-  transition: all 0.35s ease;
-}
 
-[data-theme='light'] .unified-navbar-bar {
-  background: rgba(255, 255, 255, 0.88);
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 0 20px rgba(2, 132, 199, 0.1);
-}
 
 /* Center Navigation Floating Glass Dock (Inner Glass Container) */
 .glass-nav-dock {

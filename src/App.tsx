@@ -29,11 +29,14 @@ function HomePage() {
 }
 
 function AppContent({ theme, toggleTheme }: { theme: ThemeMode; toggleTheme: () => void }) {
+  const location = useLocation()
+  const isHomePage = location.pathname === '/'
+
   return (
-    <div className="min-vh-100 position-relative overflow-hidden pt-4">
+    <div className="min-vh-100 position-relative overflow-hidden">
       <ScrollToTop />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main className="pt-4">
+      <main style={{ paddingTop: isHomePage ? '0px' : '90px' }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />

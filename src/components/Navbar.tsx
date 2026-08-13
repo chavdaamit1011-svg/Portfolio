@@ -9,7 +9,26 @@ interface NavbarProps {
 
 export default function Navbar({ theme, toggleTheme }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const headerRef = useRef<HTMLDivElement | null>(null)
+
+  // Track window scroll position to transition header state
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    }
+
+    handleScroll()
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev)
@@ -56,10 +75,10 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
         />
       )}
 
-      <header ref={headerRef} className="fixed-top w-100 z-50 py-2">
-        <div className="container px-3 px-lg-4">
+      <header ref={headerRef} className={`fixed-top w-100 z-50 transition-all ${isScrolled || isMobileMenuOpen ? 'py-2' : 'py-3'}`}>
+        <div className={`w-100 ${isScrolled || isMobileMenuOpen ? 'container px-3 px-lg-4' : 'container-fluid px-3 px-md-5'}`}>
           {/* Single Unified Floating Navbar Header Bar with Frosted Backdrop Blur */}
-          <div className="unified-navbar-bar d-flex align-items-center justify-content-between ps-1 ps-md-2 pe-3 pe-md-4 py-1">
+          <div className={`unified-navbar-bar d-flex align-items-center justify-content-between ps-1 ps-md-2 pe-3 pe-md-4 py-2 ${isScrolled || isMobileMenuOpen ? 'scrolled' : ''}`}>
             
             {/* PART 1: LEFT (Brand AC Logo + Vertical Separator Line |) */}
             <div className="d-flex align-items-center">

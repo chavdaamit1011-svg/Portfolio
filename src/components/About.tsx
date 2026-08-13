@@ -152,11 +152,13 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-5 position-relative">
-      <div className="container py-4">
+    <section id="about" className="py-4 position-relative">
+      <div className="container py-2">
         {/* Section Heading */}
-        <div className="text-center mb-5">
-          <h2 className="section-title">About Me</h2>
+        <div className="text-center mb-4">
+          <h2 className="section-title">
+            <i className="bi bi-person-fill me-2 text-cyan"></i> About Me
+          </h2>
           <div className="section-title-underline"></div>
         </div>
 

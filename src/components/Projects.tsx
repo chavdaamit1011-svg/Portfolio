@@ -72,11 +72,13 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-5 position-relative">
-      <div className="container py-4">
+    <section id="projects" className="py-4 position-relative">
+      <div className="container py-2">
         {/* Section Heading */}
-        <div className="text-center mb-5">
-          <h2 className="section-title">My Projects</h2>
+        <div className="text-center mb-4">
+          <h2 className="section-title">
+            <i className="bi bi-folder-fill me-2 text-cyan"></i> Projects
+          </h2>
           <div className="section-title-underline"></div>
         </div>
 

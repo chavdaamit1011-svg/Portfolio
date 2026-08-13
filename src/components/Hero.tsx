@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import CursorGrid from './CursorGrid'
 
 const phrases = ['Full Stack Web Developer', 'Passionate Fast Learner', 'MERN Stack - Next.js Developer']
 
@@ -42,24 +41,7 @@ export default function Hero() {
       className="position-relative d-flex align-items-center justify-content-center min-vh-100 text-center px-3 overflow-hidden"
       style={{ paddingTop: '100px', paddingBottom: '60px' }}
     >
-      {/* Background Interactive CursorGrid Canvas Layer */}
-      <div className="position-absolute top-0 start-0 w-100 h-100 z-0" style={{ pointerEvents: 'auto' }}>
-        <CursorGrid
-          cellSize={65}
-          color="#2563EB"
-          radius={160}
-          falloff="smooth"
-          holdTime={400}
-          fadeDuration={800}
-          lineWidth={1.2}
-          maxOpacity={0.85}
-          fillOpacity={0.12}
-          gridOpacity={0}
-          cellRadius={8}
-          clickPulse={true}
-          pulseSpeed={600}
-        />
-      </div>
+
 
       <div className="bg-ambient-light" style={{ top: '20%', left: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}></div>
 

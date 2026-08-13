@@ -14,11 +14,13 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-5 position-relative">
-      <div className="container py-4 max-w-6xl mx-auto">
+    <section id="contact" className="py-4 position-relative">
+      <div className="container py-2 max-w-6xl mx-auto">
         {/* Section Heading */}
-        <div className="text-center mb-5">
-          <h2 className="section-title">Get In Touch</h2>
+        <div className="text-center mb-4">
+          <h2 className="section-title">
+            <i className="bi bi-envelope-fill me-2 text-cyan"></i> Contact
+          </h2>
           <div className="section-title-underline"></div>
         </div>
 

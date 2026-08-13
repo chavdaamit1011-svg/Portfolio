@@ -27,7 +27,7 @@ export default function Services() {
 
   return (
     <section id="services" className="py-4 position-relative">
-      <div className="container py-3 max-w-4xl mx-auto">
+      <div className="container py-2 max-w-4xl mx-auto">
         {/* Section Heading */}
         <div className="text-center mb-4">
           <h2 className="section-title">
