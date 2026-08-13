@@ -77,36 +77,35 @@
     0 0 25px rgba(2, 132, 199, 0.08);
 }
 
-/* Brand AC Logo Container */
-.brand-logo-container {
-  background: #ffffff;
-  border-radius: 0.75rem;
-  padding: 0.2rem 0.55rem;
+/* Brand AC Logo Wrapper (NO White Box Container - Seamless Integration) */
+.brand-logo-wrapper {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
 }
 
-[data-theme='light'] .brand-logo-container {
-  background: transparent;
-  box-shadow: none;
-  padding: 0;
-}
-
-.brand-logo-container:hover {
-  transform: scale(1.05);
+.brand-logo-wrapper:hover {
+  transform: scale(1.06);
 }
 
 .brand-logo-img {
   height: 38px;
   width: auto;
   object-fit: contain;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+[data-theme='light'] .brand-logo-img {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.12));
 }
 
 [data-theme='dark'] .brand-logo-img {
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.95));
+  filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.92)) drop-shadow(0 0 10px rgba(0, 210, 255, 0.35));
 }
 
 /* Vertical Separator Line */

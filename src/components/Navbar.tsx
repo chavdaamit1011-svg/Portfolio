@@ -32,7 +32,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
               title="Amit Chavda Portfolio"
               onClick={closeMobileMenu}
             >
-              <div className="brand-logo-container">
+              <div className="brand-logo-wrapper">
                 <img
                   src={logoAmit}
                   alt="Amit Chavda AC Logo"
