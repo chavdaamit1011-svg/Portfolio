@@ -729,19 +729,44 @@ body {
   box-shadow: 0 2px 8px rgba(0, 174, 239, 0.25) !important;
 }
 
-/* Custom Cards */
+/* Custom Cards (Apple Vision Pro Spatial UI Floating Surfaces) */
 .custom-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 1rem;
-  box-shadow: var(--shadow-card);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1.25rem;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 20px rgba(37, 99, 235, 0.10);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease;
+  position: relative;
 }
 
 .custom-card:hover {
-  border-color: var(--cyan-primary);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15), 0 0 15px var(--cyan-glow);
+  transform: translateY(-4px);
+  border-color: var(--card-border-hover);
+  box-shadow: 
+    0 24px 50px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(37, 99, 235, 0.22);
+}
+
+[data-theme='light'] .custom-card {
+  background: #ffffff;
+  border-color: rgba(37, 99, 235, 0.12);
+  box-shadow: 
+    0 14px 40px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 0 15px rgba(37, 99, 235, 0.06);
+}
+
+[data-theme='light'] .custom-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.32);
+  box-shadow: 
+    0 22px 55px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 0 25px rgba(37, 99, 235, 0.12);
 }
 
 /* Browser Mockup Card Banner */
@@ -844,16 +869,32 @@ body {
 .terminal-line .string { color: #a3e635; }
 .terminal-line .comment { color: #64748b; }
 
-/* About Section Profile Image Frame with React Bits BorderGlow Integration */
+/* About Section Profile Image Frame with Spatial Elevation */
 .profile-glow-container {
   display: inline-block;
   max-width: 100%;
   position: relative;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 30px rgba(37, 99, 235, 0.2);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+[data-theme='light'] .profile-glow-container {
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 25px rgba(37, 99, 235, 0.1);
 }
 
 .profile-glow-container:hover {
   transform: translateY(-5px);
+  box-shadow: 
+    0 35px 75px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 0 40px rgba(37, 99, 235, 0.3);
 }
 
 .profile-img-square {
@@ -902,7 +943,7 @@ body {
   pointer-events: auto;
 }
 
-/* Skill Pill Badge */
+/* Tactile Skill Pill Badge (Spatial Depth & Micro-Elevation) */
 .skill-pill {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -914,16 +955,27 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  box-shadow: var(--shadow-card);
+  box-shadow: 
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
   white-space: nowrap;
-  transition: all 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   user-select: none;
+}
+
+[data-theme='light'] .skill-pill {
+  box-shadow: 
+    0 6px 18px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .skill-pill:hover {
   transform: translateY(-3px) scale(1.04);
-  border-color: var(--cyan-primary);
-  box-shadow: 0 8px 20px var(--cyan-glow);
+  border-color: var(--blue-light);
+  box-shadow: 
+    0 12px 25px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(37, 99, 235, 0.25);
 }
 
 .skill-pill img {
