@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import logo1 from '../assets/logo1.png'
+import logoAc from '../assets/logo-ac.png'
 
 interface NavbarProps {
   theme: 'dark' | 'light'
@@ -24,29 +24,22 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
         {/* Main Flex Navbar Row */}
         <div className="d-flex align-items-center justify-content-between py-1">
           
-          {/* PART 1: LEFT SIDE (Brand Logo Image - logo1.png) */}
+          {/* PART 1: LEFT SIDE (Brand AC Logo Image - Theme Adaptive) */}
           <NavLink
-            className="navbar-brand p-0 m-0 d-flex align-items-center position-relative"
+            className="navbar-brand p-0 m-0 d-flex align-items-center position-relative text-decoration-none"
             to="/"
             title="Amit Chavda Portfolio"
             onClick={closeMobileMenu}
-            style={{ height: '42px', minWidth: '140px', overflow: 'visible' }}
           >
-            <img
-              src={logo1}
-              alt="Logo"
-              className="brand-logo-img"
-              loading="eager"
-              decoding="async"
-              style={{
-                height: '42px',
-                width: 'auto',
-                objectFit: 'contain',
-                transform: 'scale(2.2)',
-                transformOrigin: 'left center',
-                transition: 'transform 0.3s ease',
-              }}
-            />
+            <div className="brand-logo-container">
+              <img
+                src={logoAc}
+                alt="Amit Chavda AC Logo"
+                className="brand-logo-img"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
           </NavLink>
 
           {/* PART 2: CENTER (Floating Inner Glass Dock for Multi-Page Navigation Links - Desktop) */}

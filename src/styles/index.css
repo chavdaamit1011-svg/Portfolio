@@ -11,6 +11,9 @@
   --cyan-primary: #00d2ff;
   --cyan-glow: rgba(0, 210, 255, 0.4);
   --purple-accent: #a855f7;
+  --gold-primary: #f59e0b;
+  --gold-accent: #fbbf24;
+  --gold-glow: rgba(245, 158, 11, 0.35);
   --loader-text: #cecece;
   --loader-bg-overlay: #090a0f;
   --badge-bg: rgba(255, 255, 255, 0.06);
@@ -35,6 +38,9 @@
   --cyan-primary: #0284c7;
   --cyan-glow: rgba(2, 132, 199, 0.25);
   --purple-accent: #7c3aed;
+  --gold-primary: #d97706;
+  --gold-accent: #f59e0b;
+  --gold-glow: rgba(217, 119, 6, 0.25);
   --loader-text: #1e293b;
   --loader-bg-overlay: #f8fafc;
   --badge-bg: rgba(2, 132, 199, 0.08);
@@ -44,6 +50,39 @@
   --input-border: rgba(0, 0, 0, 0.15);
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
   --toggle-color: #6366f1;
+}
+
+/* Brand AC Logo Pill Frame (Theme Adaptive for 100% Visibility in Dark & Light Theme) */
+.brand-logo-container {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(245, 158, 11, 0.45);
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.3), 0 0 10px rgba(0, 210, 255, 0.2);
+  border-radius: 0.85rem;
+  padding: 0.25rem 0.65rem;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme='light'] .brand-logo-container {
+  background: #ffffff;
+  border-color: rgba(217, 119, 6, 0.4);
+  box-shadow: 0 4px 18px rgba(217, 119, 6, 0.2);
+}
+
+.brand-logo-container:hover {
+  transform: translateY(-2px) scale(1.05);
+  border-color: #f59e0b;
+  box-shadow: 0 6px 22px rgba(245, 158, 11, 0.45), 0 0 15px rgba(0, 210, 255, 0.3);
+}
+
+.brand-logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: contrast(1.08);
 }
 
 /* Certificate Status Badge - High Contrast & High Visibility */
