@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import heroImg from '../assets/amit.jpeg'
 
 interface ProfileDrawerProps {
@@ -97,9 +96,9 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
         onClick={handleClose} 
       />
 
-      {/* Floating Popover Drawer Card */}
+      {/* Floating Popover Single Unified Profile Panel Card */}
       <div className={`profile-drawer-floating-card ${isClosing ? 'closing' : ''}`}>
-        <div className="profile-drawer-scrollable h-100">
+        <div className="profile-drawer-scrollable h-100 d-flex flex-column">
           
           {/* Hidden File Input for Custom Image/Video Upload */}
           <input 
@@ -110,11 +109,12 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
             className="d-none" 
           />
 
-          {/* Aesthetic Cover Banner (Clickable to Upload Image or Video) */}
+          {/* 1. TOP GRADIENT HEADER (Blue -> Purple -> Cyan Gradient Banner) */}
           <div 
-            className="profile-drawer-cover position-relative cursor-pointer overflow-hidden"
+            className="profile-drawer-cover position-relative cursor-pointer overflow-hidden flex-shrink-0"
             onClick={handleBannerClick}
             title="Click to upload custom cover image or video"
+            style={{ height: '120px' }}
           >
             {coverMedia ? (
               coverMedia.type === 'video' ? (
@@ -143,7 +143,7 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
               <span className="small fw-medium">Upload Image / Video</span>
             </div>
 
-            {/* Reset Cover Button if Media Uploaded */}
+            {/* Reset Cover Button */}
             {coverMedia && (
               <button 
                 className="btn btn-sm btn-dark bg-opacity-75 text-white rounded-circle position-absolute bottom-0 end-0 m-2 p-0 d-flex align-items-center justify-content-center border-0"
@@ -155,12 +155,12 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
               </button>
             )}
             
-            {/* Status Hire Pill Badge */}
+            {/* Top-Left: Small dark status pill "● Hire me." */}
             <span className="profile-status-badge position-absolute top-0 start-0 m-3 d-inline-flex align-items-center gap-2 px-3 py-1.5 rounded-pill small fw-semibold text-white bg-dark bg-opacity-60 backdrop-blur border border-white border-opacity-20 shadow-sm" style={{ zIndex: 6 }}>
               <span className="pulse-dot-green"></span> Hire me.
             </span>
 
-            {/* Close Button */}
+            {/* Top-Right: Circular dark close button with white 'X' */}
             <button 
               className="profile-drawer-close position-absolute top-0 end-0 m-3 btn btn-sm rounded-circle text-white bg-dark bg-opacity-60 border border-white border-opacity-20 d-flex align-items-center justify-content-center p-0"
               onClick={(e) => {
@@ -174,111 +174,108 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
             </button>
           </div>
 
-          {/* Avatar Photo Overlap */}
-          <div className="profile-drawer-avatar-wrapper text-center px-4">
+          {/* 2. PROFILE PHOTO (Overlapping 115px Circular Avatar) */}
+          <div className="profile-drawer-avatar-wrapper text-center px-4 flex-shrink-0" style={{ marginTop: '-48px' }}>
             <div className="profile-avatar-ring d-inline-block">
               <img 
                 src={heroImg} 
                 alt="Chavda Amit Profile" 
                 className="profile-drawer-avatar img-fluid rounded-circle"
+                style={{ width: '115px', height: '115px', border: '4px solid var(--bg-secondary)' }}
               />
             </div>
           </div>
 
-          {/* Profile Details Container */}
-          <div className="px-4 pt-3 pb-4">
-            {/* Name & Handle */}
-            <div className="text-center mb-3">
-              <h3 className="fs-4 fw-bold text-custom-heading mb-1 d-flex align-items-center justify-content-center gap-1.5 font-heading">
+          {/* SINGLE UNIFIED CONTENT PANEL (No Nested Card Boxes!) */}
+          <div className="px-4 pt-2 pb-4 d-flex flex-column flex-grow-1 justify-content-between gap-3.5">
+            
+            {/* 3. NAME + ROLE + INTRO + AVAILABILITY */}
+            <div className="text-center">
+              {/* Name + Verified Badge */}
+              <h3 className="fs-3 fw-bold text-custom-heading mb-1 d-flex align-items-center justify-content-center gap-1.5 font-heading">
                 Chavda Amit <i className="bi bi-patch-check-fill text-cyan fs-5" title="Verified Developer"></i>
               </h3>
-              <p className="text-custom-muted small mb-2">@chavdaamit1011</p>
-              <span className="badge rounded-pill bg-cyan bg-opacity-10 text-cyan border border-cyan border-opacity-20 px-3 py-1.5 fw-semibold small">
-                Full Stack Web Developer
+              
+              {/* Outlined Role Badge */}
+              <div className="mb-2.5">
+                <span className="badge rounded-pill bg-cyan bg-opacity-10 text-cyan border border-cyan border-opacity-20 px-3 py-1.5 fw-semibold small">
+                  Full Stack Web Developer
+                </span>
+              </div>
+
+              {/* Compact 2-Line Professional Introduction */}
+              <p className="text-custom-muted small lh-base mb-1.5 px-1">
+                Full-Stack Web & Next.js Developer.<br />
+                Building modern web apps & AI solutions.
+              </p>
+
+              {/* Availability Statement */}
+              <span className="text-cyan fw-semibold small d-block">
+                Available for Full-Time & Freelance Projects!
               </span>
             </div>
 
-            {/* Short Tagline */}
-            <p className="text-custom-muted small lh-base mb-3 text-center">
-              Building scalable web apps with MERN & Next.js.
-            </p>
-
-            {/* Redesigned Spacious Contact Card */}
-            <div className="profile-drawer-info-card p-3.5 rounded-4 mb-4">
-              <div className="d-flex flex-column gap-3">
-                <div className="d-flex align-items-center gap-3">
-                  <div className="profile-info-icon-badge rounded-circle text-cyan bg-cyan bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0">
-                    <i className="bi bi-geo-alt-fill"></i>
+            {/* 4. CONTACT INFORMATION LIST (Directly in panel with dividers, NO BOX CONTAINER!) */}
+            <div className="profile-contact-list py-1">
+              <div className="d-flex flex-column gap-2">
+                
+                {/* 📍 Location */}
+                <div className="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary border-opacity-10">
+                  <div className="d-flex align-items-center gap-2.5">
+                    <div className="profile-info-icon-badge rounded-circle text-primary bg-primary bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0">
+                      <i className="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <span className="small fw-semibold text-custom-heading">Location</span>
                   </div>
-                  <div className="text-truncate">
-                    <span className="d-block micro-text text-custom-muted fw-semibold uppercase">Location</span>
-                    <span className="small fw-semibold text-custom-heading text-truncate">Nikol, Ahmedabad, Gujarat, India</span>
-                  </div>
+                  <span className="small text-custom-muted text-end fw-medium ps-2">Naroda, Ahmedabad</span>
                 </div>
 
-                <div className="d-flex align-items-center gap-3">
-                  <div className="profile-info-icon-badge rounded-circle text-cyan bg-cyan bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0">
-                    <i className="bi bi-briefcase-fill"></i>
+                {/* ✉️ Email (Clickable) */}
+                <div className="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary border-opacity-10">
+                  <div className="d-flex align-items-center gap-2.5">
+                    <div className="profile-info-icon-badge rounded-circle text-primary bg-primary bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0">
+                      <i className="bi bi-envelope-fill"></i>
+                    </div>
+                    <span className="small fw-semibold text-custom-heading">Email</span>
                   </div>
-                  <div className="text-truncate">
-                    <span className="d-block micro-text text-custom-muted fw-semibold uppercase">Status</span>
-                    <span className="small fw-semibold text-custom-heading text-truncate">Open for Full-Time Roles & Projects</span>
-                  </div>
+                  <a 
+                    href="mailto:chavdaamit1011@gmail.com" 
+                    className="small text-cyan text-decoration-none hover-underline text-end fw-semibold text-truncate ps-2"
+                    style={{ maxWidth: '210px' }}
+                    title="Send Email"
+                  >
+                    chavdaamit1011@gmail.com
+                  </a>
                 </div>
 
-                <div className="d-flex align-items-center gap-3">
-                  <div className="profile-info-icon-badge rounded-circle text-cyan bg-cyan bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0">
-                    <i className="bi bi-envelope-fill"></i>
+                {/* 📞 Phone (Clickable) */}
+                <div className="d-flex align-items-center justify-content-between py-2">
+                  <div className="d-flex align-items-center gap-2.5">
+                    <div className="profile-info-icon-badge rounded-circle text-primary bg-primary bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0">
+                      <i className="bi bi-telephone-fill"></i>
+                    </div>
+                    <span className="small fw-semibold text-custom-heading">Phone</span>
                   </div>
-                  <div className="text-truncate">
-                    <span className="d-block micro-text text-custom-muted fw-semibold uppercase">Email</span>
-                    <a href="mailto:chavdaamit1011@gmail.com" className="small fw-semibold text-custom-heading text-decoration-none hover-cyan text-truncate d-block">
-                      chavdaamit1011@gmail.com
-                    </a>
-                  </div>
+                  <a 
+                    href="tel:+919998320342" 
+                    className="small text-cyan text-decoration-none hover-underline text-end fw-semibold ps-2"
+                    title="Call Phone"
+                  >
+                    +91-9998320342
+                  </a>
                 </div>
 
-                <div className="d-flex align-items-center gap-3">
-                  <div className="profile-info-icon-badge rounded-circle text-cyan bg-cyan bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0">
-                    <i className="bi bi-telephone-fill"></i>
-                  </div>
-                  <div className="text-truncate">
-                    <span className="d-block micro-text text-custom-muted fw-semibold uppercase">Phone</span>
-                    <a href="tel:+919998320342" className="small fw-semibold text-custom-heading text-decoration-none hover-cyan d-block">
-                      +91-9998320342
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="d-flex flex-column gap-2 mb-4">
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                className="btn btn-cyan rounded-pill py-2.5 px-3 fs-6 d-flex align-items-center justify-content-center gap-2 fw-semibold shadow-sm"
-              >
-                <i className="bi bi-download"></i> Download Resume
-              </a>
-              <Link
-                to="/contact"
-                onClick={handleClose}
-                className="btn btn-outline-cyan rounded-pill py-2 px-3 small d-flex align-items-center justify-content-center gap-2"
-              >
-                <i className="bi bi-envelope-fill"></i> Get In Touch
-              </Link>
-            </div>
-
-            {/* Social Links Bar */}
-            <div className="text-center">
-              <span className="text-custom-muted micro-text d-block mb-2 text-uppercase tracking-wider fw-semibold">Connect Socially</span>
+            {/* 5. SOCIAL ICONS SECTION (NO BORDER ABOVE) */}
+            <div className="pt-1">
               <div className="d-flex justify-content-center align-items-center gap-3">
                 <a
                   href="https://github.com/chavdaamit1011-svg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-drawer-icon"
+                  className="social-drawer-icon social-icon-github"
                   title="GitHub"
                 >
                   <i className="bi bi-github"></i>
@@ -287,7 +284,7 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
                   href="https://www.linkedin.com/in/amit-chavda-9ab181355/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-drawer-icon"
+                  className="social-drawer-icon social-icon-linkedin"
                   title="LinkedIn"
                 >
                   <i className="bi bi-linkedin"></i>
@@ -296,7 +293,7 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
                   href="https://www.instagram.com/chavda_amit_111/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-drawer-icon text-danger"
+                  className="social-drawer-icon social-icon-instagram"
                   title="Instagram"
                 >
                   <i className="bi bi-instagram"></i>
@@ -305,12 +302,24 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
                   href="https://wa.me/919998320342"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-drawer-icon text-success"
+                  className="social-drawer-icon social-icon-whatsapp"
                   title="WhatsApp"
                 >
                   <i className="bi bi-whatsapp"></i>
                 </a>
               </div>
+            </div>
+
+            {/* 6. PRIMARY RESUME DOWNLOAD BUTTON */}
+            <div>
+              <a
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                className="btn btn-cyan rounded-pill py-2.5 px-4 fs-6 w-100 d-flex align-items-center justify-content-center gap-2 fw-semibold shadow-sm"
+                style={{ height: '48px' }}
+              >
+                <i className="bi bi-download"></i> Download Resume
+              </a>
             </div>
 
           </div>
