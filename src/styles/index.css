@@ -1274,6 +1274,43 @@ body {
   animation: popoverSlideOutLeft 0.28s cubic-bezier(0.7, 0, 0.84, 0) forwards;
 }
 
+@media (max-width: 575px) {
+  .profile-drawer-floating-card {
+    top: 8px !important;
+    bottom: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    max-width: calc(100vw - 16px) !important;
+    height: calc(100vh - 16px) !important;
+    border-radius: 1.25rem !important;
+  }
+
+  .profile-drawer-floating-card .px-4 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .profile-drawer-avatar {
+    width: 92px !important;
+    height: 92px !important;
+  }
+
+  .profile-drawer-avatar-wrapper {
+    margin-top: -42px !important;
+  }
+
+  .profile-status-badge {
+    margin: 0.5rem !important;
+    font-size: 0.72rem !important;
+    padding: 0.25rem 0.6rem !important;
+  }
+
+  .profile-drawer-close {
+    margin: 0.5rem !important;
+  }
+}
+
 @keyframes popoverSlideInRight {
   0% {
     opacity: 0;

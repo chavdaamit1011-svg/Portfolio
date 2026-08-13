@@ -91,7 +91,7 @@ export default function Hero() {
           <a
             href="#"
             onClick={(e) => e.preventDefault()}
-            className="btn btn-cyan rounded-pill px-4 py-3 fs-6 position-relative z-2 d-inline-flex align-items-center justify-content-center gap-2"
+            className="btn btn-cyan rounded-pill px-4 py-3 fs-6 position-relative z-2 d-none d-md-inline-flex align-items-center justify-content-center gap-2"
             style={{ minWidth: '185px' }}
           >
             <i className="bi bi-download"></i> Download Resume
