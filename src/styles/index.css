@@ -1,61 +1,59 @@
-/* Base Theme Variables - Aligned to AC Monogram Logo Colors (Royal Blue #2563eb & Amber Gold #f59e0b) */
+/* Base Theme Variables - User Specified Exact Color Palette & Logo Gradient */
 :root, [data-theme='dark'] {
-  --bg-color: #07090e;
-  --bg-secondary: #0c1019;
-  --nav-bg: rgba(12, 16, 25, 0.90);
-  --card-bg: #0f1420;
-  --card-border: rgba(37, 99, 235, 0.22);
-  --card-border-hover: rgba(59, 130, 246, 0.50);
-  --text-main: #8a98ad;
-  --text-heading: #f8fafc;
-  --text-muted: #8a98ad;
-  --blue-brand: #2563eb;
-  --blue-light: #3b82f6;
-  --cyan-primary: #38bdf8;
-  --cyan-glow: rgba(37, 99, 235, 0.38);
-  --purple-accent: #8b5cf6;
-  --gold-primary: #f59e0b;
-  --gold-accent: #fbbf24;
-  --gold-glow: rgba(245, 158, 11, 0.30);
-  --loader-text: #f8fafc;
-  --loader-bg-overlay: #07090e;
-  --badge-bg: rgba(37, 99, 235, 0.14);
-  --badge-border: rgba(59, 130, 246, 0.35);
-  --badge-text: #38bdf8;
-  --input-bg: #07090e;
-  --input-border: rgba(37, 99, 235, 0.28);
+  --bg-color: #070B10;
+  --bg-secondary: #121C26;
+  --nav-bg: rgba(14, 21, 29, 0.90);
+  --card-bg: #0E151D;
+  --card-border: rgba(217, 165, 43, 0.22);
+  --card-border-hover: #00C8FF;
+  --text-main: #8493A5;
+  --text-heading: #F5F7FA;
+  --text-muted: #8493A5;
+  --cyan-primary: #00C8FF;
+  --cyan-glow: rgba(0, 200, 255, 0.35);
+  --purple-accent: #168BFF;
+  --gold-primary: #D9A52B;
+  --gold-accent: #F0C75E;
+  --gold-glow: rgba(217, 165, 43, 0.25);
+  --loader-text: #F5F7FA;
+  --loader-bg-overlay: #070B10;
+  --badge-bg: rgba(0, 200, 255, 0.12);
+  --badge-border: rgba(0, 200, 255, 0.3);
+  --badge-text: #00C8FF;
+  --input-bg: #070B10;
+  --input-border: rgba(217, 165, 43, 0.25);
   --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.55);
-  --toggle-color: #f59e0b;
+  --toggle-color: #F0C75E;
+  --logo-gradient: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%);
   font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
 }
 
 [data-theme='light'] {
-  --bg-color: #f5f8fc;
-  --bg-secondary: #ffffff;
+  --bg-color: #F5F8FC;
+  --bg-secondary: #FFFFFF;
   --nav-bg: rgba(255, 255, 255, 0.92);
-  --card-bg: #ffffff;
-  --card-border: rgba(37, 99, 235, 0.12);
-  --card-border-hover: rgba(37, 99, 235, 0.35);
-  --text-main: #475569;
-  --text-heading: #0f172a;
-  --text-muted: #64748b;
-  --blue-brand: #1d4ed8;
-  --blue-light: #2563eb;
-  --cyan-primary: #0284c7;
-  --cyan-glow: rgba(37, 99, 235, 0.20);
-  --purple-accent: #7c3aed;
-  --gold-primary: #d97706;
-  --gold-accent: #f59e0b;
-  --gold-glow: rgba(217, 119, 6, 0.20);
-  --loader-text: #0f172a;
-  --loader-bg-overlay: #f5f8fc;
-  --badge-bg: rgba(37, 99, 235, 0.08);
-  --badge-border: rgba(37, 99, 235, 0.20);
-  --badge-text: #1d4ed8;
-  --input-bg: #ffffff;
-  --input-border: rgba(37, 99, 235, 0.18);
+  --card-bg: #FFFFFF;
+  --card-border: #DCE5EE;
+  --card-border-hover: #168BFF;
+  --text-main: #64748B;
+  --text-heading: #0B2942;
+  --text-muted: #64748B;
+  --cyan-primary: #168BFF;
+  --cyan-glow: rgba(22, 139, 255, 0.2);
+  --purple-accent: #00C8FF;
+  --gold-primary: #D9A52B;
+  --gold-accent: #F0C75E;
+  --gold-glow: rgba(217, 165, 43, 0.2);
+  --loader-text: #0B2942;
+  --loader-bg-overlay: #F5F8FC;
+  --badge-bg: rgba(22, 139, 255, 0.08);
+  --badge-border: rgba(22, 139, 255, 0.2);
+  --badge-text: #168BFF;
+  --input-bg: #FFFFFF;
+  --input-border: #DCE5EE;
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
-  --toggle-color: #6366f1;
+  --toggle-color: #168BFF;
+  --logo-gradient: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%);
 }
 
 /* Single Unified Floating Navbar Header Bar (Exact Match to User Screenshot) */
@@ -445,17 +443,17 @@ body {
 
 .nav-link-custom.active {
   color: #ffffff !important;
-  background: linear-gradient(90deg, #00BFFF 0%, #168BFF 50%, #7C3CFF 100%) !important;
+  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%) !important;
   border-radius: 999px !important;
-  box-shadow: 0 4px 15px rgba(0, 180, 255, 0.35) !important;
+  box-shadow: 0 4px 15px rgba(0, 200, 255, 0.35) !important;
   border: none !important;
   font-weight: 600;
 }
 
 [data-theme='light'] .nav-link-custom.active {
   color: #ffffff !important;
-  background: linear-gradient(90deg, #00AEEF 0%, #168BFF 50%, #7C3CFF 100%) !important;
-  box-shadow: 0 4px 14px rgba(0, 174, 239, 0.3) !important;
+  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%) !important;
+  box-shadow: 0 4px 14px rgba(22, 139, 255, 0.3) !important;
 }
 
 /* Smooth Accordion Mobile Menu (Inside Main Navbar Container) */
@@ -710,10 +708,10 @@ body {
 
 .section-title-underline,
 .section-underline {
-  width: 58px !important;
+  width: 60px !important;
   height: 3px !important;
   border-radius: 999px !important;
-  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #8B5CF6 100%) !important;
+  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%) !important;
   opacity: 1 !important;
   margin: 10px auto 0 auto !important;
   box-shadow: 0 0 10px rgba(0, 200, 255, 0.4) !important;
@@ -722,8 +720,8 @@ body {
 
 [data-theme='light'] .section-title-underline,
 [data-theme='light'] .section-underline {
-  background: linear-gradient(90deg, #00AEEF 0%, #168BFF 50%, #7C3CFF 100%) !important;
-  box-shadow: 0 2px 8px rgba(0, 174, 239, 0.25) !important;
+  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%) !important;
+  box-shadow: 0 2px 8px rgba(22, 139, 255, 0.25) !important;
 }
 
 /* Custom Cards */
