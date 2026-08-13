@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import logoAc from '../assets/logo-ac.png'
+import logoAmit from '../assets/logoAmit.png'
 
 interface NavbarProps {
   theme: 'dark' | 'light'
@@ -24,23 +24,26 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
         {/* Single Unified Floating Navbar Header Bar with Frosted Backdrop Blur */}
         <div className="unified-navbar-bar d-flex align-items-center justify-content-between px-3 px-md-4 py-2">
           
-          {/* PART 1: LEFT (Brand AC Logo) */}
-          <NavLink
-            className="navbar-brand p-0 m-0 d-flex align-items-center position-relative text-decoration-none"
-            to="/"
-            title="Amit Chavda Portfolio"
-            onClick={closeMobileMenu}
-          >
-            <div className="brand-logo-container">
-              <img
-                src={logoAc}
-                alt="Amit Chavda AC Logo"
-                className="brand-logo-img"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-          </NavLink>
+          {/* PART 1: LEFT (Brand AC Logo + Vertical Separator Line |) */}
+          <div className="d-flex align-items-center">
+            <NavLink
+              className="navbar-brand p-0 m-0 d-flex align-items-center position-relative text-decoration-none"
+              to="/"
+              title="Amit Chavda Portfolio"
+              onClick={closeMobileMenu}
+            >
+              <div className="brand-logo-container">
+                <img
+                  src={logoAmit}
+                  alt="Amit Chavda AC Logo"
+                  className="brand-logo-img"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </NavLink>
+            <div className="nav-vertical-divider d-none d-sm-block"></div>
+          </div>
 
           {/* PART 2: CENTER (Navigation Links - Integrated Inline inside Unified Header Bar) */}
           <div className="d-none d-lg-block">

@@ -52,37 +52,74 @@
   --toggle-color: #6366f1;
 }
 
-/* Brand AC Logo Pill Frame (Theme Adaptive for 100% Visibility in Dark & Light Theme) */
+/* Single Unified Floating Navbar Header Bar (Exact Design Match for Light & Dark Theme) */
+.unified-navbar-bar {
+  background: rgba(11, 14, 25, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 210, 255, 0.22);
+  border-radius: 50rem;
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 25px rgba(0, 210, 255, 0.15);
+  transition: all 0.35s ease;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+[data-theme='light'] .unified-navbar-bar {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 25px rgba(2, 132, 199, 0.08);
+}
+
+/* Brand AC Logo Container */
 .brand-logo-container {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1.5px solid rgba(245, 158, 11, 0.45);
-  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.3), 0 0 10px rgba(0, 210, 255, 0.2);
-  border-radius: 0.85rem;
-  padding: 0.25rem 0.65rem;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 0.2rem 0.55rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
 
 [data-theme='light'] .brand-logo-container {
-  background: #ffffff;
-  border-color: rgba(217, 119, 6, 0.4);
-  box-shadow: 0 4px 18px rgba(217, 119, 6, 0.2);
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
 }
 
 .brand-logo-container:hover {
-  transform: translateY(-2px) scale(1.05);
-  border-color: #f59e0b;
-  box-shadow: 0 6px 22px rgba(245, 158, 11, 0.45), 0 0 15px rgba(0, 210, 255, 0.3);
+  transform: scale(1.05);
 }
 
 .brand-logo-img {
-  height: 36px;
+  height: 38px;
   width: auto;
   object-fit: contain;
-  mix-blend-mode: multiply;
-  filter: contrast(1.08);
+}
+
+[data-theme='dark'] .brand-logo-img {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.95));
+}
+
+/* Vertical Separator Line */
+.nav-vertical-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.18);
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+[data-theme='light'] .nav-vertical-divider {
+  background: rgba(0, 0, 0, 0.12);
 }
 
 /* Certificate Status Badge - High Contrast & High Visibility */
@@ -410,14 +447,19 @@ body {
 }
 
 .nav-link-custom.active {
-  color: #ffffff !important;
-  background: var(--cyan-primary);
-  box-shadow: 0 4px 15px var(--cyan-glow);
+  color: #00d2ff !important;
+  background: rgba(0, 210, 255, 0.14);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.25);
   font-weight: 600;
 }
 
 [data-theme='light'] .nav-link-custom.active {
-  color: #ffffff !important;
+  color: #2563eb !important;
+  background: #e0e8ff;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+  font-weight: 600;
 }
 
 /* Smooth Accordion Mobile Menu (Inside Main Navbar Container) */
