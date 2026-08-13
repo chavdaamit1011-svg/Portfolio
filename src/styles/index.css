@@ -240,6 +240,29 @@ body {
   z-index: 0;
 }
 
+/* Single Unified Floating Navbar Header Bar (Frosted Glass Backdrop Blur) */
+.unified-navbar-bar {
+  background: rgba(18, 20, 29, 0.78);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50rem;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 20px rgba(0, 210, 255, 0.12);
+  transition: all 0.35s ease;
+}
+
+[data-theme='light'] .unified-navbar-bar {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(2, 132, 199, 0.1);
+}
+
 /* Center Navigation Floating Glass Dock (Inner Glass Container) */
 .glass-nav-dock {
   background: rgba(18, 20, 29, 0.65);

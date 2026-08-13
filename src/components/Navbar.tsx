@@ -21,10 +21,10 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
   return (
     <header className="fixed-top w-100 z-50 py-2 py-md-3">
       <div className="container px-3 px-lg-4">
-        {/* Main Flex Navbar Row */}
-        <div className="d-flex align-items-center justify-content-between py-1">
+        {/* Single Unified Floating Navbar Header Bar with Frosted Backdrop Blur */}
+        <div className="unified-navbar-bar d-flex align-items-center justify-content-between px-3 px-md-4 py-2">
           
-          {/* PART 1: LEFT SIDE (Brand AC Logo Image - Theme Adaptive) */}
+          {/* PART 1: LEFT (Brand AC Logo) */}
           <NavLink
             className="navbar-brand p-0 m-0 d-flex align-items-center position-relative text-decoration-none"
             to="/"
@@ -42,9 +42,9 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             </div>
           </NavLink>
 
-          {/* PART 2: CENTER (Floating Inner Glass Dock for Multi-Page Navigation Links - Desktop) */}
+          {/* PART 2: CENTER (Navigation Links - Integrated Inline inside Unified Header Bar) */}
           <div className="d-none d-lg-block">
-            <ul className="nav flex-row align-items-center gap-1 glass-nav-dock mb-0 list-unstyled">
+            <ul className="nav flex-row align-items-center gap-1 mb-0 list-unstyled">
               <li className="nav-item">
                 <NavLink
                   className={({ isActive }) => `nav-link nav-link-custom ${isActive ? 'active' : ''}`}
@@ -89,7 +89,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             </ul>
           </div>
 
-          {/* PART 3: RIGHT SIDE (Theme Toggle Button & Custom Animated Hamburger) */}
+          {/* PART 3: RIGHT (Theme Toggle & Mobile Hamburger) */}
           <div className="d-flex align-items-center gap-2">
             <label className="themeToggle st-sunMoonThemeToggleBtn" htmlFor="themeToggleBtn">
               <input
@@ -129,7 +129,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
           </div>
         </div>
 
-        {/* PART 4: SMOOTH ACCORDION MOBILE MENU (Inside Navbar Container, Max-Height & Opacity Animation) */}
+        {/* PART 4: SMOOTH ACCORDION MOBILE MENU */}
         <div className={`mobile-menu-accordion d-lg-none ${isMobileMenuOpen ? 'open' : ''}`}>
           <div className="mobile-nav-glass-card">
             <nav className="d-flex flex-column gap-1">
