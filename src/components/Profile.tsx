@@ -2,10 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import heroImg from '../assets/amit.jpeg'
 import BorderGlow from './BorderGlow'
+import SEO from './SEO'
 
 export default function Profile() {
   return (
     <section id="profile" className="py-4 position-relative">
+      <SEO 
+        title="Developer Profile | Chavda Amit - Best Next.js & Full Stack Developer"
+        description="Full Stack Web & Next.js Developer Profile for Chavda Amit. Specializing in MERN Stack, React, Next.js, and custom freelance web development."
+        keywords="Chavda Amit Profile, Best Nextjs Developer Profile, Full Stack Developer, Freelance Developer"
+      />
       <div className="container py-2 max-w-5xl mx-auto">
         {/* Section Heading */}
         <div className="text-center mb-4">

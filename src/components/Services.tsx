@@ -1,8 +1,14 @@
 import React from 'react'
 import BorderGlow from './BorderGlow'
+import SEO from './SEO'
 
 export default function Services() {
   const servicesList = [
+    {
+      icon: 'bi-rocket-takeoff-fill',
+      title: 'Freelance Web Development',
+      description: 'Custom end-to-end web development for clients & businesses worldwide with Next.js, React, and modern UI.',
+    },
     {
       icon: 'bi-window-stack',
       title: 'Website Development',
@@ -23,10 +29,20 @@ export default function Services() {
       title: 'Backend Development',
       description: 'Developing robust server-side applications, RESTful APIs, and database architecture with Node.js, Express, and MongoDB.',
     },
+    {
+      icon: 'bi-robot',
+      title: 'Custom AI Chatbot Integration',
+      description: 'Building intelligent AI chatbots trained on your business documents & data to deliver automated 24/7 customer support.',
+    },
   ]
 
   return (
     <section id="services" className="py-4 position-relative">
+      <SEO 
+        title="Web & Freelance Development Services | Chavda Amit - Best Next.js Developer"
+        description="High-performance custom web development, full-stack Next.js apps, React frontend, and freelance web development services by Chavda Amit."
+        keywords="Freelance Web Developer, Best Website Developer, Best Nextjs Developer, Custom Web Development, React Developer Services"
+      />
       <div className="container py-2 max-w-4xl mx-auto">
         {/* Section Heading */}
         <div className="text-center mb-4">

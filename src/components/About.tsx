@@ -3,6 +3,7 @@ import heroImg from '../assets/amit.jpeg'
 import featureEngCertImg from '../assets/Chavda Amit - Feature Engineering.png'
 import featureEngPdf from '../assets/certificate-u3jvgchsurj5-1785312229.pdf'
 import BorderGlow from './BorderGlow'
+import SEO from './SEO'
 
 export default function About() {
   const [selectedCert, setSelectedCert] = useState<any>(null)
@@ -153,6 +154,11 @@ export default function About() {
 
   return (
     <section id="about" className="py-4 position-relative">
+      <SEO 
+        title="About Chavda Amit | Best Next.js & MERN Stack Web Developer"
+        description="Learn about Chavda Amit - Best Full Stack Web Developer & Next.js specialist delivering high-performance custom web applications and freelance web development services."
+        keywords="About Chavda Amit, Best Nextjs Developer, Best Web Developer, Freelance Developer India, Full Stack Developer Portfolio"
+      />
       <div className="container py-2">
         {/* Section Heading */}
         <div className="text-center mb-4">

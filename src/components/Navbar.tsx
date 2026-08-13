@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import logoAmit from '../assets/logoAmit.png'
+import ProfileDrawer from './ProfileDrawer'
 
 interface NavbarProps {
   theme: 'dark' | 'light'
@@ -10,6 +11,7 @@ interface NavbarProps {
 export default function Navbar({ theme, toggleTheme }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isProfileDrawerOpen, setIsProfileDrawerOpen] = useState(false)
   const headerRef = useRef<HTMLDivElement | null>(null)
 
   // Track window scroll position to transition header state
@@ -75,18 +77,28 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
         />
       )}
 
+      {/* Profile Side Drawer Modal */}
+      <ProfileDrawer 
+        isOpen={isProfileDrawerOpen} 
+        onClose={() => setIsProfileDrawerOpen(false)} 
+      />
+
       <header ref={headerRef} className={`fixed-top w-100 z-50 transition-all ${isScrolled || isMobileMenuOpen ? 'py-2' : 'py-3'}`}>
-        <div className={`w-100 ${isScrolled || isMobileMenuOpen ? 'container px-3 px-lg-4' : 'container-fluid px-3 px-md-5'}`}>
+        <div className={`w-100 transition-all ${isScrolled || isMobileMenuOpen ? 'container px-3 px-lg-4' : 'container-fluid px-4 px-lg-5'}`}>
           {/* Single Unified Floating Navbar Header Bar with Frosted Backdrop Blur */}
-          <div className={`unified-navbar-bar d-flex align-items-center justify-content-between ps-1 ps-md-2 pe-3 pe-md-4 py-2 ${isScrolled || isMobileMenuOpen ? 'scrolled' : ''}`}>
+          <div className={`unified-navbar-bar d-flex align-items-center justify-content-between ps-1 ps-md-2 pe-3 pe-md-4 py-1.5 ${isScrolled || isMobileMenuOpen ? 'scrolled' : ''}`}>
             
             {/* PART 1: LEFT (Brand AC Logo + Vertical Separator Line |) */}
             <div className="d-flex align-items-center">
-              <NavLink
+              <div
                 className="navbar-brand p-0 m-0 d-flex align-items-center position-relative text-decoration-none"
-                to="/profile"
-                title="Chavda Amit Profile"
-                onClick={closeMobileMenu}
+                onClick={(e) => {
+                  e.preventDefault()
+                  closeMobileMenu()
+                  setIsProfileDrawerOpen(true)
+                }}
+                style={{ cursor: 'pointer' }}
+                title="Click to view Developer Profile"
               >
                 <div className="brand-logo-wrapper">
                   <img
@@ -97,7 +109,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                     decoding="async"
                   />
                 </div>
-              </NavLink>
+              </div>
               <div className="nav-vertical-divider d-none d-sm-block"></div>
             </div>
 

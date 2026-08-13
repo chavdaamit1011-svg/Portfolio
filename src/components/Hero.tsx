@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from './SEO'
 
-const phrases = ['Full Stack Web Developer', 'Passionate Fast Learner', 'MERN Stack - Next.js Developer']
+const phrases = [
+  'Full Stack Web Developer',
+  'Best Next.js & React Expert',
+  'Freelance Web Developer',
+  'MERN Stack Developer',
+]
 
 export default function Hero() {
   const [text, setText] = useState('')
@@ -41,11 +47,20 @@ export default function Hero() {
       className="position-relative d-flex align-items-center justify-content-center min-vh-100 text-center px-3 overflow-hidden"
       style={{ paddingTop: '100px', paddingBottom: '60px' }}
     >
-
+      <SEO 
+        title="Chavda Amit | Best Full Stack & Next.js Developer | Freelance Web Developer"
+        description="Chavda Amit is a top Full Stack Developer & Next.js expert building high-performance web applications. Available for freelance projects & custom web development."
+        keywords="Best Developer, Best Nextjs Developer, Best Website Developer, Freelance Web Developer, Chavda Amit, Full Stack Developer, MERN Stack Developer, Custom Web Development"
+      />
 
       <div className="bg-ambient-light" style={{ top: '20%', left: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}></div>
 
       <div className="container position-relative z-1 max-w-4xl mx-auto d-flex flex-column align-items-center justify-content-center text-center">
+        {/* Availability Badge highlighting Full-Time Roles & Projects */}
+        <span className="badge rounded-pill bg-cyan bg-opacity-10 text-cyan border border-cyan border-opacity-20 px-3.5 py-2 mb-3 small fw-semibold d-inline-flex align-items-center gap-2">
+          <span className="pulse-dot-cyan"></span> Open for Full-Time Roles & Projects
+        </span>
+
         <p className="text-custom-muted fs-5 mb-2 font-medium text-center w-100">Hello, I'm</p>
 
         <h1 className="display-2 hero-name-text text-custom-heading mb-3 text-center w-100">

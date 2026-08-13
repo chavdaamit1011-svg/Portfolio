@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import SEO from './SEO'
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -15,6 +16,11 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-4 position-relative">
+      <SEO 
+        title="Contact & Hire Chavda Amit | Best Freelance Web Developer"
+        description="Hire Chavda Amit for custom freelance web development, Next.js applications, and full-stack web solutions. Available for remote work & freelance projects."
+        keywords="Hire Freelance Developer, Contact Chavda Amit, Best Web Developer Contact, Freelance Next.js Developer Hire"
+      />
       <div className="container py-2 max-w-6xl mx-auto">
         {/* Section Heading */}
         <div className="text-center mb-4">
@@ -26,8 +32,8 @@ export default function Contact() {
 
         {/* Top Header Text Banner */}
         <div className="mb-4 text-start">
-          <span className="badge-connect-pill mb-3 d-inline-flex align-items-center gap-2 px-3 py-1.5 rounded-pill small fw-semibold text-primary bg-primary bg-opacity-10 border border-primary border-opacity-20">
-            <span className="pulse-dot-cyan"></span> Let's Connect
+          <span className="badge-connect-pill mb-3 d-inline-flex align-items-center gap-2 px-3 py-1.5 rounded-pill small fw-semibold text-cyan bg-cyan bg-opacity-10 border border-cyan border-opacity-20">
+            <span className="pulse-dot-cyan"></span> Open for Full-Time Opportunities & Projects
           </span>
 
           <h3 className="fs-2 fw-bold text-custom-heading mb-2" style={{ fontFamily: "'Outfit', 'Syne', sans-serif" }}>

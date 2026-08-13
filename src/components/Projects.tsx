@@ -1,5 +1,6 @@
 import React from 'react'
 import BorderGlow from './BorderGlow'
+import SEO from './SEO'
 import kingqueenImg from '../assets/kingqueen.png'
 import destinyImg from '../assets/destiny.png'
 import darkstoreImg from '../assets/darkstore.png'
@@ -73,6 +74,11 @@ const projects: Project[] = [
 export default function Projects() {
   return (
     <section id="projects" className="py-4 position-relative">
+      <SEO 
+        title="Web Development Projects & Portfolio | Chavda Amit - Best Developer"
+        description="Explore live full-stack web applications, e-commerce stores, and React/Next.js projects built by Chavda Amit, top freelance web developer."
+        keywords="Web Projects, Best Nextjs Projects, E-commerce Web Developer, React.js Portfolio, Chavda Amit Projects"
+      />
       <div className="container py-2">
         {/* Section Heading */}
         <div className="text-center mb-4">
