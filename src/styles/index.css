@@ -58,19 +58,21 @@
   --toggle-color: #6366f1;
 }
 
-/* Single Unified Floating Navbar Header Bar (Dark Theme Specification Match) */
+/* Single Unified Floating Navbar Header Bar (Slim, Compact & Sleek) */
 .unified-navbar-bar {
-  background: rgba(7, 12, 20, 0.88);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(0, 200, 255, 0.20);
-  border-radius: 30px;
-  box-shadow: 0 0 25px rgba(0, 150, 255, 0.08);
+  background: rgba(12, 16, 25, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(37, 99, 235, 0.28);
+  border-radius: 50rem;
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 25px rgba(37, 99, 235, 0.18);
   transition: all 0.35s ease;
-  width: 84%;
-  max-width: 1100px;
-  margin: 18px auto 0 auto;
-  padding: 8px 26px;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0.3rem 1.25rem !important;
 }
 
 [data-theme='light'] .unified-navbar-bar {
@@ -80,11 +82,9 @@
     0 12px 35px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     0 0 25px rgba(37, 99, 235, 0.10);
-  width: 90%;
-  max-width: 1100px;
 }
 
-/* Brand AC Logo Wrapper (NO White Box, Direct Transparent Surface) */
+/* Brand AC Logo Wrapper (Prominent Logo Size + Bright Clear Dark Mode Filter) */
 .brand-logo-wrapper {
   background: transparent !important;
   border: none !important;
@@ -93,31 +93,29 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-.brand-logo-wrapper:hover {
-  transform: scale(1.04);
+  overflow: visible !important;
 }
 
 .brand-logo-img {
-  height: 48px !important;
+  height: 42px !important;
   width: auto !important;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.12)) !important;
+  transform: scale(1.35) !important;
+  transform-origin: left center !important;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-[data-theme='light'] .brand-logo-img {
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.12)) !important;
+[data-theme='dark'] .brand-logo-img {
+  filter: brightness(2.6) contrast(1.2) !important;
 }
 
 /* Vertical Separator Line */
 .nav-vertical-divider {
   width: 1px;
-  height: 30px;
-  background: rgba(130, 160, 190, 0.20);
-  margin-left: 18px;
-  margin-right: 18px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.18);
+  margin-left: 1rem;
+  margin-right: 0.5rem;
 }
 
 [data-theme='light'] .nav-vertical-divider {
@@ -434,43 +432,32 @@ body {
 }
 
 .nav-link-custom {
-  color: #8291A7 !important;
-  font-size: 15px;
+  color: var(--text-muted);
   font-weight: 500;
-  padding: 8px 18px !important;
+  font-size: 0.92rem;
+  padding: 0.45rem 1.1rem !important;
   border-radius: 50rem;
-  transition: color 0.25s ease, background 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  text-decoration: none;
 }
 
 .nav-link-custom:hover {
-  color: #E5F2FF !important;
-  background: transparent;
+  color: var(--text-heading) !important;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .nav-link-custom.active {
-  color: #00C8FF !important;
-  background: rgba(0, 174, 255, 0.10) !important;
-  border: 1px solid rgba(0, 200, 255, 0.30) !important;
+  color: #ffffff !important;
+  background: linear-gradient(90deg, #00BFFF 0%, #168BFF 50%, #7C3CFF 100%) !important;
   border-radius: 999px !important;
-  padding: 8px 22px !important;
-  box-shadow: 0 0 14px rgba(0, 200, 255, 0.16) !important;
+  box-shadow: 0 4px 15px rgba(0, 180, 255, 0.35) !important;
+  border: none !important;
   font-weight: 600;
-}
-
-[data-theme='light'] .nav-link-custom {
-  color: #64748b !important;
-}
-
-[data-theme='light'] .nav-link-custom:hover {
-  color: #0f172a !important;
 }
 
 [data-theme='light'] .nav-link-custom.active {
   color: #ffffff !important;
   background: linear-gradient(90deg, #00AEEF 0%, #168BFF 50%, #7C3CFF 100%) !important;
-  border: none !important;
   box-shadow: 0 4px 14px rgba(0, 174, 239, 0.3) !important;
 }
 
@@ -581,27 +568,6 @@ body {
 .st-sunMoonThemeToggleBtn {
   position: relative;
   cursor: pointer;
-  width: 48px !important;
-  height: 48px !important;
-  border-radius: 50% !important;
-  background: rgba(12, 25, 38, 0.75) !important;
-  border: 1px solid rgba(0, 200, 255, 0.18) !important;
-  box-shadow: 0 0 15px rgba(0, 160, 255, 0.08) !important;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.st-sunMoonThemeToggleBtn:hover {
-  border-color: rgba(0, 200, 255, 0.38) !important;
-  box-shadow: 0 0 20px rgba(0, 200, 255, 0.18) !important;
-}
-
-[data-theme='light'] .st-sunMoonThemeToggleBtn {
-  background: rgba(255, 255, 255, 0.9) !important;
-  border-color: rgba(37, 99, 235, 0.18) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
 }
 
 .st-sunMoonThemeToggleBtn .themeToggleInput {

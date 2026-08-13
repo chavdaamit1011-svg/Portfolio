@@ -19,10 +19,10 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
   }
 
   return (
-    <header className="fixed-top w-100 z-50 py-2 py-md-3">
+    <header className="fixed-top w-100 z-50 py-2">
       <div className="container px-3 px-lg-4">
         {/* Single Unified Floating Navbar Header Bar with Frosted Backdrop Blur */}
-        <div className="unified-navbar-bar d-flex align-items-center justify-content-between px-3 px-md-4 py-2">
+        <div className="unified-navbar-bar d-flex align-items-center justify-content-between px-3 px-md-4 py-1">
           
           {/* PART 1: LEFT (Brand AC Logo + Vertical Separator Line |) */}
           <div className="d-flex align-items-center">
