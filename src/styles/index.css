@@ -1,86 +1,82 @@
-/* Base Theme Variables - Reference Palette Exact Match */
+/* Base Theme Variables */
 :root, [data-theme='dark'] {
-  --bg-color: #06090F;
-  --bg-secondary: #0D121C;
-  --nav-bg: rgba(13, 18, 28, 0.85);
-  --card-bg: #0D121C;
-  --card-border: rgba(0, 200, 255, 0.16);
-  --text-main: #94a3b8;
-  --text-heading: #F5F7FF;
-  --text-muted: #71809A;
-  --navy-primary: #0B1B33;
+  --bg-color: #070A10;
+  --bg-secondary: #0D121A;
+  --nav-bg: rgba(13, 18, 26, 0.85);
+  --card-bg: #10141D;
+  --card-border: rgba(130, 160, 200, 0.16);
+  --card-border-hover: rgba(0, 200, 255, 0.40);
+  --text-main: #8A98AD;
+  --text-heading: #F4F7FF;
+  --text-muted: #8A98AD;
   --cyan-primary: #00C8FF;
-  --blue-primary: #168BFF;
-  --purple-primary: #7C3CFF;
-  --gold-primary: #D9A52B;
-  --teal-accent: #14D9C4;
   --cyan-glow: rgba(0, 200, 255, 0.35);
-  --gold-glow: rgba(217, 165, 43, 0.3);
-  --loader-text: #F5F7FF;
-  --loader-bg-overlay: #06090F;
+  --purple-accent: #8B5CF6;
+  --gold-primary: #E0AD35;
+  --gold-accent: #E0AD35;
+  --gold-glow: rgba(224, 173, 55, 0.25);
+  --loader-text: #F4F7FF;
+  --loader-bg-overlay: #070A10;
   --badge-bg: rgba(0, 200, 255, 0.08);
-  --badge-border: rgba(0, 200, 255, 0.22);
-  --badge-text: #F5F7FF;
-  --input-bg: #07111F;
-  --input-border: rgba(0, 200, 255, 0.2);
-  --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.55);
-  --toggle-color: #D9A52B;
+  --badge-border: rgba(0, 200, 255, 0.25);
+  --badge-text: #00C8FF;
+  --input-bg: #070A10;
+  --input-border: rgba(130, 160, 200, 0.22);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --toggle-color: #E0AD35;
   font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
 }
 
 [data-theme='light'] {
   --bg-color: #F5F8FC;
   --bg-secondary: #FFFFFF;
-  --nav-bg: rgba(255, 255, 255, 0.92);
+  --nav-bg: rgba(255, 255, 255, 0.88);
   --card-bg: #FFFFFF;
-  --card-border: rgba(11, 27, 51, 0.08);
-  --text-main: #334155;
+  --card-border: rgba(30, 70, 110, 0.10);
+  --card-border-hover: rgba(0, 174, 239, 0.35);
+  --text-main: #66758C;
   --text-heading: #0B1B33;
-  --text-muted: #64748b;
-  --navy-primary: #0B1B33;
-  --cyan-primary: #0088cc;
-  --blue-primary: #168BFF;
-  --purple-primary: #7C3CFF;
-  --gold-primary: #D9A52B;
-  --teal-accent: #0f9f8f;
-  --cyan-glow: rgba(22, 139, 255, 0.2);
-  --gold-glow: rgba(217, 165, 43, 0.2);
+  --text-muted: #66758C;
+  --cyan-primary: #00AEEF;
+  --cyan-glow: rgba(0, 174, 239, 0.25);
+  --purple-accent: #7C3CFF;
+  --gold-primary: #D97706;
+  --gold-accent: #F59E0B;
+  --gold-glow: rgba(217, 119, 6, 0.25);
   --loader-text: #0B1B33;
   --loader-bg-overlay: #F5F8FC;
-  --badge-bg: rgba(22, 139, 255, 0.08);
-  --badge-border: rgba(22, 139, 255, 0.2);
-  --badge-text: #0B1B33;
+  --badge-bg: rgba(0, 174, 239, 0.08);
+  --badge-border: rgba(0, 174, 239, 0.2);
+  --badge-text: #00AEEF;
   --input-bg: #FFFFFF;
-  --input-border: rgba(11, 27, 51, 0.15);
+  --input-border: rgba(30, 70, 110, 0.15);
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
-  --toggle-color: #7C3CFF;
+  --toggle-color: #6366f1;
 }
 
-/* Single Unified Floating Navbar Header Bar (Exact Reference Match) */
+/* Single Unified Floating Navbar Header Bar (Exact Design Match for Light & Dark Theme) */
 .unified-navbar-bar {
-  background: rgba(13, 18, 28, 0.88);
+  background: rgba(11, 14, 25, 0.92);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(0, 200, 255, 0.22);
+  border: 1px solid rgba(0, 210, 255, 0.22);
   border-radius: 50rem;
   box-shadow: 
     0 12px 35px rgba(0, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 0 25px rgba(0, 200, 255, 0.15);
+    0 0 25px rgba(0, 210, 255, 0.15);
   transition: all 0.35s ease;
-  max-width: 960px;
-  width: 92%;
+  max-width: 940px;
   margin: 0 auto;
-  min-height: 64px;
 }
 
 [data-theme='light'] .unified-navbar-bar {
   background: rgba(255, 255, 255, 0.94);
-  border-color: rgba(11, 27, 51, 0.08);
+  border-color: rgba(0, 0, 0, 0.08);
   box-shadow: 
-    0 12px 35px rgba(0, 0, 0, 0.07),
+    0 12px 35px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 0 20px rgba(22, 139, 255, 0.08);
+    0 0 25px rgba(2, 132, 199, 0.08);
 }
 
 /* Brand AC Logo Wrapper (NO White Box Container - Seamless Integration) */
@@ -452,21 +448,18 @@ body {
 }
 
 .nav-link-custom.active {
-  color: #FFFFFF !important;
-  background: linear-gradient(135deg, #00C8FF 0%, #168BFF 50%, #7C3CFF 100%);
-  border: 1px solid rgba(0, 200, 255, 0.4);
-  box-shadow: 0 0 18px rgba(0, 200, 255, 0.35);
+  color: #ffffff !important;
+  background: linear-gradient(90deg, #00BFFF 0%, #168BFF 50%, #7C3CFF 100%) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 4px 15px rgba(0, 180, 255, 0.35) !important;
+  border: none !important;
   font-weight: 600;
-  border-radius: 50rem;
-  padding: 0.45rem 1.25rem !important;
 }
 
 [data-theme='light'] .nav-link-custom.active {
-  color: #FFFFFF !important;
-  background: linear-gradient(135deg, #168BFF 0%, #7C3CFF 100%);
-  border: none;
-  box-shadow: 0 4px 16px rgba(22, 139, 255, 0.3);
-  font-weight: 600;
+  color: #ffffff !important;
+  background: linear-gradient(90deg, #00AEEF 0%, #168BFF 50%, #7C3CFF 100%) !important;
+  box-shadow: 0 4px 14px rgba(0, 174, 239, 0.3) !important;
 }
 
 /* Smooth Accordion Mobile Menu (Inside Main Navbar Container) */
@@ -709,7 +702,7 @@ body {
   color: #0b0c10;
 }
 
-/* Section Title Underline */
+/* Section Title Underline (Cyan → Blue → Purple Gradient - High Visibility) */
 .section-title {
   font-family: 'Syne', 'Outfit', sans-serif;
   font-size: 2.25rem;
@@ -719,13 +712,22 @@ body {
   display: inline-block;
 }
 
-.section-title-underline {
-  width: 70px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--cyan-primary) 0%, var(--purple-accent) 100%);
-  border-radius: 4px;
-  margin: 10px auto 0 auto;
-  box-shadow: 0 0 10px var(--cyan-glow);
+.section-title-underline,
+.section-underline {
+  width: 58px !important;
+  height: 3px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #8B5CF6 100%) !important;
+  opacity: 1 !important;
+  margin: 10px auto 0 auto !important;
+  box-shadow: 0 0 10px rgba(0, 200, 255, 0.4) !important;
+  display: block !important;
+}
+
+[data-theme='light'] .section-title-underline,
+[data-theme='light'] .section-underline {
+  background: linear-gradient(90deg, #00AEEF 0%, #168BFF 50%, #7C3CFF 100%) !important;
+  box-shadow: 0 2px 8px rgba(0, 174, 239, 0.25) !important;
 }
 
 /* Custom Cards */
