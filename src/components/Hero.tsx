@@ -63,35 +63,52 @@ export default function Hero() {
 
       <div className="bg-ambient-light" style={{ top: '20%', left: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}></div>
 
-      <div className="container position-relative z-1 max-w-4xl mx-auto">
-        <p className="text-custom-muted fs-5 mb-2 font-medium">Hello, I'm</p>
+      <div className="container position-relative z-1 max-w-4xl mx-auto d-flex flex-column align-items-center justify-content-center text-center">
+        <p className="text-custom-muted fs-5 mb-2 font-medium text-center w-100">Hello, I'm</p>
 
-        <h1 className="display-2 hero-name-text text-custom-heading mb-3">
+        <h1 className="display-2 hero-name-text text-custom-heading mb-3 text-center w-100">
           CHAVDA <span className="text-gradient-cyan-purple">AMIT</span>
         </h1>
 
-        <div className="fs-3 text-custom-heading font-medium mb-4 min-h-12 d-flex align-items-center justify-content-center">
+        <div className="fs-3 text-custom-heading font-medium mb-4 min-h-12 d-flex align-items-center justify-content-center text-center w-100">
           <span>{text}</span>
           <span className="typing-cursor"></span>
         </div>
 
-        <div className="d-flex flex-wrap justify-content-center gap-3 mt-4 mb-4">
-          <Link to="/projects" className="btn btn-cyan btn-lg rounded-pill px-4 py-3 fs-6 position-relative z-2">
+        {/* Perfectly Balanced Symmetrical Center Aligned Buttons Trio */}
+        <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-3 mb-4 w-100 mx-auto">
+          <Link
+            to="/projects"
+            className="btn btn-cyan rounded-pill px-4 py-3 fs-6 position-relative z-2 d-inline-flex align-items-center justify-content-center"
+            style={{ minWidth: '165px' }}
+          >
             View My Work
           </Link>
-          <Link to="/contact" className="btn btn-outline-cyan btn-lg rounded-pill px-4 py-3 fs-6 position-relative z-2">
+          <Link
+            to="/contact"
+            className="btn btn-outline-cyan rounded-pill px-4 py-3 fs-6 position-relative z-2 d-inline-flex align-items-center justify-content-center"
+            style={{ minWidth: '165px' }}
+          >
             Contact Me
           </Link>
+          <a
+            href="#"
+            onClick={(e) => e.preventDefault()}
+            className="btn btn-cyan rounded-pill px-4 py-3 fs-6 position-relative z-2 d-inline-flex align-items-center justify-content-center gap-2"
+            style={{ minWidth: '185px' }}
+          >
+            <i className="bi bi-download"></i> Download Resume
+          </a>
         </div>
 
         {/* Hero Social Icon Bar */}
-        <div className="d-flex justify-content-center align-items-center gap-3 mt-4 position-relative z-2">
+        <div className="d-flex justify-content-center align-items-center gap-3 mt-3 position-relative z-2 w-100 mx-auto">
           <a
             href="https://github.com/chavdaamit1011-svg"
             target="_blank"
             rel="noopener noreferrer"
             className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
-            style={{ width: '42px', height: '42px' }}
+            style={{ width: '44px', height: '44px' }}
             aria-label="GitHub"
             title="GitHub"
           >
@@ -102,7 +119,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
-            style={{ width: '42px', height: '42px' }}
+            style={{ width: '44px', height: '44px' }}
             aria-label="LinkedIn"
             title="LinkedIn"
           >
@@ -113,7 +130,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
-            style={{ width: '42px', height: '42px' }}
+            style={{ width: '44px', height: '44px' }}
             aria-label="Instagram"
             title="Instagram"
           >
@@ -124,7 +141,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
-            style={{ width: '42px', height: '42px' }}
+            style={{ width: '44px', height: '44px' }}
             aria-label="WhatsApp"
             title="WhatsApp"
           >

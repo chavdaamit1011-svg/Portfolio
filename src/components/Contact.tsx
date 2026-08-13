@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import BorderGlow from './BorderGlow'
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -16,71 +15,73 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-5 position-relative">
-      <div className="container py-4">
+      <div className="container py-4 max-w-6xl mx-auto">
         {/* Section Heading */}
         <div className="text-center mb-5">
           <h2 className="section-title">Get In Touch</h2>
           <div className="section-title-underline"></div>
         </div>
 
-        <div className="row g-4 align-items-start">
-          {/* Left Column: Contact Cards */}
-          <div className="col-lg-5">
-            <h3 className="fs-3 fw-bold text-custom-heading mb-3">
-              Let's talk about everything!
-            </h3>
-            <p className="text-custom-muted mb-4 fs-6 lh-base">
-              Feel free to reach out to me for web development projects, freelance
-              inquiries, or software engineering job opportunities.
-            </p>
+        {/* Top Header Text Banner */}
+        <div className="mb-4 text-start">
+          <span className="badge-connect-pill mb-3 d-inline-flex align-items-center gap-2 px-3 py-1.5 rounded-pill small fw-semibold text-primary bg-primary bg-opacity-10 border border-primary border-opacity-20">
+            <span className="pulse-dot-cyan"></span> Let's Connect
+          </span>
 
+          <h3 className="fs-2 fw-bold text-custom-heading mb-2" style={{ fontFamily: "'Outfit', 'Syne', sans-serif" }}>
+            Let's talk about everything!
+          </h3>
+
+          <p className="text-custom-muted mb-4 fs-6 lh-base" style={{ maxWidth: '620px' }}>
+            Feel free to reach out to me for web development projects, freelance inquiries, or software engineering job opportunities.
+          </p>
+        </div>
+
+        {/* 2-Column Row starting EXACTLY at Location Card & Contact Form Card */}
+        <div className="row g-4 g-lg-5 align-items-start">
+          {/* Left Column: Location, Email, Phone Cards + Social Icons */}
+          <div className="col-lg-5 mb-4 mb-lg-0">
             <div className="d-flex flex-column gap-3 mb-4">
               {/* Location Card */}
-              <BorderGlow className="p-3" borderRadius={14} edgeSensitivity={30} glowRadius={35}>
-                <div className="d-flex align-items-center gap-3">
-                  <div className="bg-primary bg-opacity-10 p-3 rounded-circle text-cyan">
-                    <i className="bi bi-geo-alt-fill fs-4"></i>
-                  </div>
-                  <div>
-                    <h5 className="fs-6 fw-semibold text-custom-heading mb-0">Location</h5>
-                    <p className="text-custom-muted small mb-0">Nikol, Ahmedabad, Gujarat, India</p>
-                  </div>
+              <div className="custom-card p-3 d-flex align-items-center gap-3">
+                <div className="contact-icon-wrapper rounded-circle d-flex align-items-center justify-content-center text-primary bg-primary bg-opacity-10">
+                  <i className="bi bi-geo-alt-fill fs-5"></i>
                 </div>
-              </BorderGlow>
+                <div>
+                  <h5 className="fs-6 fw-bold text-custom-heading mb-1">Location</h5>
+                  <p className="text-custom-muted small mb-0">Nikol, Ahmedabad, Gujarat, India</p>
+                </div>
+              </div>
 
               {/* Email Card */}
-              <BorderGlow className="p-3" borderRadius={14} edgeSensitivity={30} glowRadius={35}>
-                <div className="d-flex align-items-center gap-3">
-                  <div className="bg-primary bg-opacity-10 p-3 rounded-circle text-cyan">
-                    <i className="bi bi-envelope-fill fs-4"></i>
-                  </div>
-                  <div>
-                    <h5 className="fs-6 fw-semibold text-custom-heading mb-0">Email</h5>
-                    <a href="mailto:chavdaamit1011@gmail.com" className="text-custom-muted small text-decoration-none hover-white mb-0">
-                      chavdaamit1011@gmail.com
-                    </a>
-                  </div>
+              <div className="custom-card p-3 d-flex align-items-center gap-3">
+                <div className="contact-icon-wrapper rounded-circle d-flex align-items-center justify-content-center text-primary bg-primary bg-opacity-10">
+                  <i className="bi bi-envelope-fill fs-5"></i>
                 </div>
-              </BorderGlow>
+                <div>
+                  <h5 className="fs-6 fw-bold text-custom-heading mb-1">Email</h5>
+                  <a href="mailto:chavdaamit1011@gmail.com" className="text-custom-muted small text-decoration-none hover-white mb-0">
+                    chavdaamit1011@gmail.com
+                  </a>
+                </div>
+              </div>
 
               {/* Phone Card */}
-              <BorderGlow className="p-3" borderRadius={14} edgeSensitivity={30} glowRadius={35}>
-                <div className="d-flex align-items-center gap-3">
-                  <div className="bg-primary bg-opacity-10 p-3 rounded-circle text-cyan">
-                    <i className="bi bi-telephone-fill fs-4"></i>
-                  </div>
-                  <div>
-                    <h5 className="fs-6 fw-semibold text-custom-heading mb-0">Phone</h5>
-                    <a href="tel:+919998320342" className="text-custom-muted small text-decoration-none hover-white mb-0">
-                      +91-9998320342
-                    </a>
-                  </div>
+              <div className="custom-card p-3 d-flex align-items-center gap-3">
+                <div className="contact-icon-wrapper rounded-circle d-flex align-items-center justify-content-center text-primary bg-primary bg-opacity-10">
+                  <i className="bi bi-telephone-fill fs-5"></i>
                 </div>
-              </BorderGlow>
+                <div>
+                  <h5 className="fs-6 fw-bold text-custom-heading mb-1">Phone</h5>
+                  <a href="tel:+919998320342" className="text-custom-muted small text-decoration-none hover-white mb-0">
+                    +91-9998320342
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Social Links (GitHub, LinkedIn, Instagram, WhatsApp) */}
-            <div className="d-flex gap-3 mt-4">
+            <div className="d-flex align-items-center gap-3">
               <a
                 href="https://github.com/chavdaamit1011-svg"
                 target="_blank"
@@ -128,44 +129,80 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right Column: Contact Form Card wrapped with BorderGlow */}
+          {/* Right Column: Compact Contact Form Card starting ALIGNED with Location Card */}
           <div className="col-lg-7">
-            <BorderGlow className="p-4 p-md-5" borderRadius={20} edgeSensitivity={35} glowRadius={40}>
-              <h3 className="fs-4 fw-bold text-custom-heading mb-4">Send me a message</h3>
+            <div className="custom-card p-4 p-md-4 position-relative overflow-hidden">
+              {/* Decorative Matrix Dots Pattern in Top Right Corner */}
+              <div className="position-absolute top-0 end-0 p-4 opacity-25 pointer-events-none d-none d-sm-block">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="currentColor" className="text-primary">
+                  <circle cx="6" cy="6" r="2.5" />
+                  <circle cx="24" cy="6" r="2.5" />
+                  <circle cx="42" cy="6" r="2.5" />
+                  <circle cx="6" cy="24" r="2.5" />
+                  <circle cx="24" cy="24" r="2.5" />
+                  <circle cx="42" cy="24" r="2.5" />
+                  <circle cx="6" cy="42" r="2.5" />
+                  <circle cx="24" cy="42" r="2.5" />
+                  <circle cx="42" cy="42" r="2.5" />
+                </svg>
+              </div>
+
+              {/* Form Header */}
+              <div className="d-flex align-items-center gap-3 mb-3">
+                <div className="rounded-circle p-2 bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+                  <i className="bi bi-send-fill fs-6"></i>
+                </div>
+                <h4 className="fs-5 fw-bold text-custom-heading mb-0">Send me a message</h4>
+              </div>
+
               <form onSubmit={handleSubmit}>
+                <div className="row g-3 mb-3">
+                  <div className="col-md-6">
+                    <div className="contact-input-group">
+                      <i className="bi bi-person contact-input-icon"></i>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="form-control contact-input-field"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="contact-input-group">
+                      <i className="bi bi-envelope contact-input-icon"></i>
+                      <input
+                        type="email"
+                        required
+                        placeholder="Your Email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="form-control contact-input-field"
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 <div className="mb-3">
-                  <input
-                    type="text"
-                    required
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="form-control form-input-custom"
-                  />
+                  <div className="contact-input-group align-items-start">
+                    <i className="bi bi-chat-text contact-input-icon pt-2"></i>
+                    <textarea
+                      rows={3}
+                      required
+                      placeholder="Your Message"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="form-control contact-input-field"
+                      style={{ paddingTop: '0.65rem' }}
+                    ></textarea>
+                  </div>
                 </div>
-                <div className="mb-3">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="form-control form-input-custom"
-                  />
-                </div>
-                <div className="mb-4">
-                  <textarea
-                    rows={5}
-                    required
-                    placeholder="Your Message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="form-control form-input-custom"
-                  ></textarea>
-                </div>
+
                 <button
                   type="submit"
-                  className="btn btn-cyan btn-lg rounded-pill w-100 py-3 fs-6 d-flex align-items-center justify-content-center gap-2"
+                  className="btn btn-primary-gradient btn-md rounded-pill w-100 py-2.5 fs-6 fw-bold d-flex align-items-center justify-content-center gap-2"
                 >
                   <i className="bi bi-send-fill"></i> Send Message
                 </button>
@@ -177,7 +214,7 @@ export default function Contact() {
                   Thank you! Your message has been sent successfully.
                 </div>
               )}
-            </BorderGlow>
+            </div>
           </div>
         </div>
       </div>

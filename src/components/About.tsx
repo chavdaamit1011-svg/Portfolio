@@ -25,7 +25,6 @@ export default function About() {
     { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
     { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
     { name: 'REST APIs', icon: 'https://api.iconify.design/tdesign:api.svg' },
-    { name: 'Postman', icon: 'https://api.iconify.design/devicon:postman.svg' },
   ]
 
   const aiSkills = [
@@ -191,8 +190,8 @@ export default function About() {
 
           {/* Right Column: Bio & Overview */}
           <div className="col-lg-7">
-            <h3 className="fs-2 fw-bold text-custom-heading mb-3">
-              Full Stack Web Developer
+            <h3 className="fs-2 fw-bold hero-name-text text-custom-heading mb-3">
+              Full Stack <span className="text-gradient-cyan-purple">Web Developer</span>
             </h3>
             <p className="text-custom-muted lh-lg mb-4 fs-6">
               Seeking a challenging role in web development where I can apply my
@@ -507,23 +506,11 @@ export default function About() {
                       </span>
                     </div>
 
-                    {/* Institution & Optional PDF Direct Link */}
-                    <div className="d-flex align-items-center justify-content-between mb-3">
+                    {/* Institution */}
+                    <div className="mb-3">
                       <p className="text-cyan small fw-medium mb-0">
                         {cert.institute}
                       </p>
-                      {cert.pdfSrc && (
-                        <a
-                          href={cert.pdfSrc}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-outline-cyan rounded-pill btn-sm px-2.5 py-0.5 x-small fw-semibold"
-                          onClick={(e) => e.stopPropagation()}
-                          title="View Official PDF Certificate"
-                        >
-                          <i className="bi bi-file-earmark-pdf me-1"></i> PDF
-                        </a>
-                      )}
                     </div>
                   </div>
 

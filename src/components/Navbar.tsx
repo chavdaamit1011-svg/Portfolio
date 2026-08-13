@@ -65,8 +65,8 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             <div className="d-flex align-items-center">
               <NavLink
                 className="navbar-brand p-0 m-0 d-flex align-items-center position-relative text-decoration-none"
-                to="/"
-                title="Chavda Amit Portfolio"
+                to="/profile"
+                title="Chavda Amit Profile"
                 onClick={closeMobileMenu}
               >
                 <div className="brand-logo-wrapper">
@@ -209,6 +209,17 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                 >
                   <i className="bi bi-envelope-fill"></i> Contact
                 </NavLink>
+
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    closeMobileMenu();
+                  }}
+                  className="btn btn-cyan rounded-pill py-2.5 px-3 fs-6 d-flex align-items-center justify-content-center gap-2 mt-2"
+                >
+                  <i className="bi bi-download"></i> Download Resume
+                </a>
               </nav>
             </div>
           </div>

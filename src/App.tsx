@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import About from './components/About'
+import Profile from './components/Profile'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Loader from './components/Loader'
@@ -36,6 +37,7 @@ function AppContent({ theme, toggleTheme }: { theme: ThemeMode; toggleTheme: () 
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
@@ -43,10 +45,10 @@ function AppContent({ theme, toggleTheme }: { theme: ThemeMode; toggleTheme: () 
       </main>
 
       {/* Footer */}
-      <footer className="py-4 border-top border-secondary border-opacity-25 mt-5">
+      <footer className="py-4 mt-5 bg-transparent">
         <div className="container text-center">
           <p className="text-custom-muted small mb-0">
-            © {new Date().getFullYear()} <span className="brand-text fs-5">𝓐𝓶𝓲𝓽.</span> All rights reserved. Built with React & Next.js aesthetics.
+            © {new Date().getFullYear()} <span className="brand-text fs-5 text-gradient-cyan-purple fw-bold">Chavda Amit.</span> All rights reserved.
           </p>
         </div>
       </footer>
