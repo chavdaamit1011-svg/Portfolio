@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import CursorGrid from './CursorGrid'
 
 const phrases = ['Full Stack Web Developer', 'Passionate Fast Learner', 'MERN Stack - Next.js Developer']
 
@@ -38,10 +39,29 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="position-relative d-flex align-items-center justify-content-center min-vh-100 text-center px-3"
+      className="position-relative d-flex align-items-center justify-content-center min-vh-100 text-center px-3 overflow-hidden"
       style={{ paddingTop: '100px', paddingBottom: '60px' }}
     >
-      <div className="bg-ambient-light" style={{ top: '20%', left: '50%', transform: 'translate(-50%, -50%)' }}></div>
+      {/* Background Interactive CursorGrid Canvas Layer */}
+      <div className="position-absolute top-0 start-0 w-100 h-100 z-0" style={{ pointerEvents: 'auto' }}>
+        <CursorGrid
+          cellSize={65}
+          color="#2563EB"
+          radius={160}
+          falloff="smooth"
+          holdTime={400}
+          fadeDuration={800}
+          lineWidth={1.2}
+          maxOpacity={0.85}
+          fillOpacity={0.12}
+          gridOpacity={0.06}
+          cellRadius={8}
+          clickPulse={true}
+          pulseSpeed={600}
+        />
+      </div>
+
+      <div className="bg-ambient-light" style={{ top: '20%', left: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}></div>
 
       <div className="container position-relative z-1 max-w-4xl mx-auto">
         <p className="text-custom-muted fs-5 mb-2 font-medium">Hello, I'm</p>
@@ -56,16 +76,16 @@ export default function Hero() {
         </div>
 
         <div className="d-flex flex-wrap justify-content-center gap-3 mt-4 mb-4">
-          <Link to="/projects" className="btn btn-cyan btn-lg rounded-pill px-4 py-3 fs-6">
+          <Link to="/projects" className="btn btn-cyan btn-lg rounded-pill px-4 py-3 fs-6 position-relative z-2">
             View My Work
           </Link>
-          <Link to="/contact" className="btn btn-outline-cyan btn-lg rounded-pill px-4 py-3 fs-6">
+          <Link to="/contact" className="btn btn-outline-cyan btn-lg rounded-pill px-4 py-3 fs-6 position-relative z-2">
             Contact Me
           </Link>
         </div>
 
         {/* Hero Social Icon Bar */}
-        <div className="d-flex justify-content-center align-items-center gap-3 mt-4">
+        <div className="d-flex justify-content-center align-items-center gap-3 mt-4 position-relative z-2">
           <a
             href="https://github.com/chavdaamit1011-svg"
             target="_blank"
