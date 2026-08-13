@@ -176,7 +176,7 @@ export default function About() {
               <div className="position-relative">
                 <img
                   src={heroImg}
-                  alt="Amit Chavda"
+                  alt="Chavda Amit"
                   className="profile-img-square"
                   loading="eager"
                   decoding="async"

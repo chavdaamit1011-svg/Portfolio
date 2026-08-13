@@ -29,13 +29,13 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             <NavLink
               className="navbar-brand p-0 m-0 d-flex align-items-center position-relative text-decoration-none"
               to="/"
-              title="Amit Chavda Portfolio"
+              title="Chavda Amit Portfolio"
               onClick={closeMobileMenu}
             >
               <div className="brand-logo-wrapper">
                 <img
                   src={logoAmit}
-                  alt="Amit Chavda AC Logo"
+                  alt="Chavda Amit AC Logo"
                   className="brand-logo-img"
                   loading="eager"
                   decoding="async"

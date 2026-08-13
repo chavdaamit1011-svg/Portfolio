@@ -47,7 +47,7 @@ export default function Hero() {
         <p className="text-custom-muted fs-5 mb-2 font-medium">Hello, I'm</p>
 
         <h1 className="display-2 hero-name-text text-custom-heading mb-3">
-          AMIT <span className="text-gradient-cyan-purple">CHAVDA</span>
+          CHAVDA <span className="text-gradient-cyan-purple">AMIT</span>
         </h1>
 
         <div className="fs-3 text-custom-heading font-medium mb-4 min-h-12 d-flex align-items-center justify-content-center">
