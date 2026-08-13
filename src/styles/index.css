@@ -1,70 +1,74 @@
-/* Base Theme Variables */
+/* Base Theme Variables - Aligned to AC Monogram Logo Colors (Royal Blue #2563eb & Amber Gold #f59e0b) */
 :root, [data-theme='dark'] {
-  --bg-color: #070A10;
-  --bg-secondary: #0D121A;
-  --nav-bg: rgba(13, 18, 26, 0.85);
-  --card-bg: #10141D;
-  --card-border: rgba(130, 160, 200, 0.16);
-  --card-border-hover: rgba(0, 200, 255, 0.40);
-  --text-main: #8A98AD;
-  --text-heading: #F4F7FF;
-  --text-muted: #8A98AD;
-  --cyan-primary: #00C8FF;
-  --cyan-glow: rgba(0, 200, 255, 0.35);
-  --purple-accent: #8B5CF6;
-  --gold-primary: #E0AD35;
-  --gold-accent: #E0AD35;
-  --gold-glow: rgba(224, 173, 55, 0.25);
-  --loader-text: #F4F7FF;
-  --loader-bg-overlay: #070A10;
-  --badge-bg: rgba(0, 200, 255, 0.08);
-  --badge-border: rgba(0, 200, 255, 0.25);
-  --badge-text: #00C8FF;
-  --input-bg: #070A10;
-  --input-border: rgba(130, 160, 200, 0.22);
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
-  --toggle-color: #E0AD35;
+  --bg-color: #07090e;
+  --bg-secondary: #0c1019;
+  --nav-bg: rgba(12, 16, 25, 0.90);
+  --card-bg: #0f1420;
+  --card-border: rgba(37, 99, 235, 0.22);
+  --card-border-hover: rgba(59, 130, 246, 0.50);
+  --text-main: #8a98ad;
+  --text-heading: #f8fafc;
+  --text-muted: #8a98ad;
+  --blue-brand: #2563eb;
+  --blue-light: #3b82f6;
+  --cyan-primary: #38bdf8;
+  --cyan-glow: rgba(37, 99, 235, 0.38);
+  --purple-accent: #8b5cf6;
+  --gold-primary: #f59e0b;
+  --gold-accent: #fbbf24;
+  --gold-glow: rgba(245, 158, 11, 0.30);
+  --loader-text: #f8fafc;
+  --loader-bg-overlay: #07090e;
+  --badge-bg: rgba(37, 99, 235, 0.14);
+  --badge-border: rgba(59, 130, 246, 0.35);
+  --badge-text: #38bdf8;
+  --input-bg: #07090e;
+  --input-border: rgba(37, 99, 235, 0.28);
+  --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.55);
+  --toggle-color: #f59e0b;
   font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
 }
 
 [data-theme='light'] {
-  --bg-color: #F5F8FC;
-  --bg-secondary: #FFFFFF;
-  --nav-bg: rgba(255, 255, 255, 0.88);
-  --card-bg: #FFFFFF;
-  --card-border: rgba(30, 70, 110, 0.10);
-  --card-border-hover: rgba(0, 174, 239, 0.35);
-  --text-main: #66758C;
-  --text-heading: #0B1B33;
-  --text-muted: #66758C;
-  --cyan-primary: #00AEEF;
-  --cyan-glow: rgba(0, 174, 239, 0.25);
-  --purple-accent: #7C3CFF;
-  --gold-primary: #D97706;
-  --gold-accent: #F59E0B;
-  --gold-glow: rgba(217, 119, 6, 0.25);
-  --loader-text: #0B1B33;
-  --loader-bg-overlay: #F5F8FC;
-  --badge-bg: rgba(0, 174, 239, 0.08);
-  --badge-border: rgba(0, 174, 239, 0.2);
-  --badge-text: #00AEEF;
-  --input-bg: #FFFFFF;
-  --input-border: rgba(30, 70, 110, 0.15);
+  --bg-color: #f5f8fc;
+  --bg-secondary: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --card-bg: #ffffff;
+  --card-border: rgba(37, 99, 235, 0.12);
+  --card-border-hover: rgba(37, 99, 235, 0.35);
+  --text-main: #475569;
+  --text-heading: #0f172a;
+  --text-muted: #64748b;
+  --blue-brand: #1d4ed8;
+  --blue-light: #2563eb;
+  --cyan-primary: #0284c7;
+  --cyan-glow: rgba(37, 99, 235, 0.20);
+  --purple-accent: #7c3aed;
+  --gold-primary: #d97706;
+  --gold-accent: #f59e0b;
+  --gold-glow: rgba(217, 119, 6, 0.20);
+  --loader-text: #0f172a;
+  --loader-bg-overlay: #f5f8fc;
+  --badge-bg: rgba(37, 99, 235, 0.08);
+  --badge-border: rgba(37, 99, 235, 0.20);
+  --badge-text: #1d4ed8;
+  --input-bg: #ffffff;
+  --input-border: rgba(37, 99, 235, 0.18);
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
   --toggle-color: #6366f1;
 }
 
-/* Single Unified Floating Navbar Header Bar (Exact Design Match for Light & Dark Theme) */
+/* Single Unified Floating Navbar Header Bar (Exact Match to User Screenshot) */
 .unified-navbar-bar {
-  background: rgba(11, 14, 25, 0.92);
+  background: rgba(12, 16, 25, 0.92);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(0, 210, 255, 0.22);
+  border: 1px solid rgba(37, 99, 235, 0.28);
   border-radius: 50rem;
   box-shadow: 
-    0 12px 35px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 0 25px rgba(0, 210, 255, 0.15);
+    0 12px 35px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 25px rgba(37, 99, 235, 0.18);
   transition: all 0.35s ease;
   max-width: 940px;
   margin: 0 auto;
@@ -72,14 +76,14 @@
 
 [data-theme='light'] .unified-navbar-bar {
   background: rgba(255, 255, 255, 0.94);
-  border-color: rgba(0, 0, 0, 0.08);
+  border-color: rgba(37, 99, 235, 0.15);
   box-shadow: 
     0 12px 35px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 0 25px rgba(2, 132, 199, 0.08);
+    0 0 25px rgba(37, 99, 235, 0.10);
 }
 
-/* Brand AC Logo Wrapper (NO White Box Container - Seamless Integration) */
+/* Brand AC Logo Wrapper (NO Glow Filter - Natural & Crisp, Increased Size to 48px) */
 .brand-logo-wrapper {
   background: transparent !important;
   border: none !important;
@@ -96,18 +100,10 @@
 }
 
 .brand-logo-img {
-  height: 38px;
-  width: auto;
+  height: 48px !important;
+  width: auto !important;
   object-fit: contain;
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-[data-theme='light'] .brand-logo-img {
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.12));
-}
-
-[data-theme='dark'] .brand-logo-img {
-  filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.92)) drop-shadow(0 0 10px rgba(0, 210, 255, 0.35));
+  filter: none !important;
 }
 
 /* Vertical Separator Line */
