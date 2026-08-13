@@ -1,75 +1,76 @@
-/* Base Theme Variables - User Specified Exact Color Palette & Logo Gradient */
+/* Base Theme Variables - Aligned to AC Monogram Logo Colors (Royal Blue #2563eb & Amber Gold #f59e0b) */
 :root, [data-theme='dark'] {
-  --bg-color: #070B10;
-  --bg-secondary: #121C26;
-  --nav-bg: rgba(14, 21, 29, 0.90);
-  --card-bg: #0E151D;
-  --card-border: rgba(217, 165, 43, 0.22);
-  --card-border-hover: #00C8FF;
-  --text-main: #8493A5;
-  --text-heading: #F5F7FA;
-  --text-muted: #8493A5;
-  --cyan-primary: #00C8FF;
-  --cyan-glow: rgba(0, 200, 255, 0.35);
-  --purple-accent: #168BFF;
-  --gold-primary: #D9A52B;
-  --gold-accent: #F0C75E;
-  --gold-glow: rgba(217, 165, 43, 0.25);
-  --loader-text: #F5F7FA;
-  --loader-bg-overlay: #070B10;
-  --badge-bg: rgba(0, 200, 255, 0.12);
-  --badge-border: rgba(0, 200, 255, 0.3);
-  --badge-text: #00C8FF;
-  --input-bg: #070B10;
-  --input-border: rgba(217, 165, 43, 0.25);
+  --bg-color: #07090e;
+  --bg-secondary: #0c1019;
+  --nav-bg: rgba(12, 16, 25, 0.90);
+  --card-bg: #0f1420;
+  --card-border: rgba(37, 99, 235, 0.22);
+  --card-border-hover: rgba(59, 130, 246, 0.50);
+  --text-main: #8a98ad;
+  --text-heading: #f8fafc;
+  --text-muted: #8a98ad;
+  --blue-brand: #2563eb;
+  --blue-light: #3b82f6;
+  --cyan-primary: #38bdf8;
+  --cyan-glow: rgba(37, 99, 235, 0.38);
+  --purple-accent: #8b5cf6;
+  --gold-primary: #f59e0b;
+  --gold-accent: #fbbf24;
+  --gold-glow: rgba(245, 158, 11, 0.30);
+  --loader-text: #f8fafc;
+  --loader-bg-overlay: #07090e;
+  --badge-bg: rgba(37, 99, 235, 0.14);
+  --badge-border: rgba(59, 130, 246, 0.35);
+  --badge-text: #38bdf8;
+  --input-bg: #07090e;
+  --input-border: rgba(37, 99, 235, 0.28);
   --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.55);
-  --toggle-color: #F0C75E;
-  --logo-gradient: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%);
+  --toggle-color: #f59e0b;
   font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
 }
 
 [data-theme='light'] {
-  --bg-color: #F5F8FC;
-  --bg-secondary: #FFFFFF;
+  --bg-color: #f5f8fc;
+  --bg-secondary: #ffffff;
   --nav-bg: rgba(255, 255, 255, 0.92);
-  --card-bg: #FFFFFF;
-  --card-border: #DCE5EE;
-  --card-border-hover: #168BFF;
-  --text-main: #64748B;
-  --text-heading: #0B2942;
-  --text-muted: #64748B;
-  --cyan-primary: #168BFF;
-  --cyan-glow: rgba(22, 139, 255, 0.2);
-  --purple-accent: #00C8FF;
-  --gold-primary: #D9A52B;
-  --gold-accent: #F0C75E;
-  --gold-glow: rgba(217, 165, 43, 0.2);
-  --loader-text: #0B2942;
-  --loader-bg-overlay: #F5F8FC;
-  --badge-bg: rgba(22, 139, 255, 0.08);
-  --badge-border: rgba(22, 139, 255, 0.2);
-  --badge-text: #168BFF;
-  --input-bg: #FFFFFF;
-  --input-border: #DCE5EE;
+  --card-bg: #ffffff;
+  --card-border: rgba(37, 99, 235, 0.12);
+  --card-border-hover: rgba(37, 99, 235, 0.35);
+  --text-main: #475569;
+  --text-heading: #0f172a;
+  --text-muted: #64748b;
+  --blue-brand: #1d4ed8;
+  --blue-light: #2563eb;
+  --cyan-primary: #0284c7;
+  --cyan-glow: rgba(37, 99, 235, 0.20);
+  --purple-accent: #7c3aed;
+  --gold-primary: #d97706;
+  --gold-accent: #f59e0b;
+  --gold-glow: rgba(217, 119, 6, 0.20);
+  --loader-text: #0f172a;
+  --loader-bg-overlay: #f5f8fc;
+  --badge-bg: rgba(37, 99, 235, 0.08);
+  --badge-border: rgba(37, 99, 235, 0.20);
+  --badge-text: #1d4ed8;
+  --input-bg: #ffffff;
+  --input-border: rgba(37, 99, 235, 0.18);
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
-  --toggle-color: #168BFF;
-  --logo-gradient: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%);
+  --toggle-color: #6366f1;
 }
 
-/* Single Unified Floating Navbar Header Bar (Exact Match to User Screenshot) */
+/* Single Unified Floating Navbar Header Bar (Dark Theme Specification Match) */
 .unified-navbar-bar {
-  background: rgba(12, 16, 25, 0.92);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(37, 99, 235, 0.28);
-  border-radius: 50rem;
-  box-shadow: 
-    0 12px 35px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 0 25px rgba(37, 99, 235, 0.18);
+  background: rgba(7, 12, 20, 0.88);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(0, 200, 255, 0.20);
+  border-radius: 30px;
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.08);
   transition: all 0.35s ease;
-  max-width: 940px;
-  margin: 0 auto;
+  width: 84%;
+  max-width: 1100px;
+  margin: 18px auto 0 auto;
+  padding: 8px 26px;
 }
 
 [data-theme='light'] .unified-navbar-bar {
@@ -79,9 +80,11 @@
     0 12px 35px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     0 0 25px rgba(37, 99, 235, 0.10);
+  width: 90%;
+  max-width: 1100px;
 }
 
-/* Brand AC Logo Wrapper (NO Glow Filter - Natural & Crisp, Increased Size to 48px) */
+/* Brand AC Logo Wrapper (NO White Box, Direct Transparent Surface) */
 .brand-logo-wrapper {
   background: transparent !important;
   border: none !important;
@@ -94,23 +97,27 @@
 }
 
 .brand-logo-wrapper:hover {
-  transform: scale(1.06);
+  transform: scale(1.04);
 }
 
 .brand-logo-img {
   height: 48px !important;
   width: auto !important;
   object-fit: contain;
-  filter: none !important;
+  filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.12)) !important;
+}
+
+[data-theme='light'] .brand-logo-img {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.12)) !important;
 }
 
 /* Vertical Separator Line */
 .nav-vertical-divider {
   width: 1px;
-  height: 28px;
-  background: rgba(255, 255, 255, 0.18);
-  margin-left: 1rem;
-  margin-right: 0.5rem;
+  height: 30px;
+  background: rgba(130, 160, 190, 0.20);
+  margin-left: 18px;
+  margin-right: 18px;
 }
 
 [data-theme='light'] .nav-vertical-divider {
@@ -427,33 +434,44 @@ body {
 }
 
 .nav-link-custom {
-  color: var(--text-muted);
+  color: #8291A7 !important;
+  font-size: 15px;
   font-weight: 500;
-  font-size: 0.92rem;
-  padding: 0.45rem 1.1rem !important;
+  padding: 8px 18px !important;
   border-radius: 50rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.25s ease, background 0.25s ease;
   position: relative;
+  text-decoration: none;
 }
 
 .nav-link-custom:hover {
-  color: var(--text-heading) !important;
-  background: rgba(255, 255, 255, 0.06);
+  color: #E5F2FF !important;
+  background: transparent;
 }
 
 .nav-link-custom.active {
-  color: #ffffff !important;
-  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%) !important;
+  color: #00C8FF !important;
+  background: rgba(0, 174, 255, 0.10) !important;
+  border: 1px solid rgba(0, 200, 255, 0.30) !important;
   border-radius: 999px !important;
-  box-shadow: 0 4px 15px rgba(0, 200, 255, 0.35) !important;
-  border: none !important;
+  padding: 8px 22px !important;
+  box-shadow: 0 0 14px rgba(0, 200, 255, 0.16) !important;
   font-weight: 600;
+}
+
+[data-theme='light'] .nav-link-custom {
+  color: #64748b !important;
+}
+
+[data-theme='light'] .nav-link-custom:hover {
+  color: #0f172a !important;
 }
 
 [data-theme='light'] .nav-link-custom.active {
   color: #ffffff !important;
-  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%) !important;
-  box-shadow: 0 4px 14px rgba(22, 139, 255, 0.3) !important;
+  background: linear-gradient(90deg, #00AEEF 0%, #168BFF 50%, #7C3CFF 100%) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(0, 174, 239, 0.3) !important;
 }
 
 /* Smooth Accordion Mobile Menu (Inside Main Navbar Container) */
@@ -563,6 +581,27 @@ body {
 .st-sunMoonThemeToggleBtn {
   position: relative;
   cursor: pointer;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: rgba(12, 25, 38, 0.75) !important;
+  border: 1px solid rgba(0, 200, 255, 0.18) !important;
+  box-shadow: 0 0 15px rgba(0, 160, 255, 0.08) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.st-sunMoonThemeToggleBtn:hover {
+  border-color: rgba(0, 200, 255, 0.38) !important;
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.18) !important;
+}
+
+[data-theme='light'] .st-sunMoonThemeToggleBtn {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(37, 99, 235, 0.18) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
 }
 
 .st-sunMoonThemeToggleBtn .themeToggleInput {
@@ -708,10 +747,10 @@ body {
 
 .section-title-underline,
 .section-underline {
-  width: 60px !important;
+  width: 58px !important;
   height: 3px !important;
   border-radius: 999px !important;
-  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%) !important;
+  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #8B5CF6 100%) !important;
   opacity: 1 !important;
   margin: 10px auto 0 auto !important;
   box-shadow: 0 0 10px rgba(0, 200, 255, 0.4) !important;
@@ -720,8 +759,8 @@ body {
 
 [data-theme='light'] .section-title-underline,
 [data-theme='light'] .section-underline {
-  background: linear-gradient(90deg, #00C8FF 0%, #168BFF 50%, #D9A52B 100%) !important;
-  box-shadow: 0 2px 8px rgba(22, 139, 255, 0.25) !important;
+  background: linear-gradient(90deg, #00AEEF 0%, #168BFF 50%, #7C3CFF 100%) !important;
+  box-shadow: 0 2px 8px rgba(0, 174, 239, 0.25) !important;
 }
 
 /* Custom Cards */
