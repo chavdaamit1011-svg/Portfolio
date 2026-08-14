@@ -1,4 +1,4 @@
-import { projects } from '../components/Projects'
+import { projects } from '../data/projectsData'
 
 /**
  * Dynamically calculates developer experience based on job start date: 1 May 2026.
