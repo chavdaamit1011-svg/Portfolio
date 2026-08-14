@@ -31,7 +31,7 @@ export default function Contact() {
         </div>
 
         {/* Top Header Text Banner */}
-        <div className="mb-4 text-start">
+        <div className="mb-4 text-center text-md-start">
           <span className="badge-connect-pill mb-3 d-inline-flex align-items-center gap-2 px-3 py-1.5 rounded-pill small fw-semibold text-cyan bg-cyan bg-opacity-10 border border-cyan border-opacity-20">
             <span className="pulse-dot-cyan"></span> Open for Full-Time Opportunities & Projects
           </span>
@@ -40,7 +40,7 @@ export default function Contact() {
             Let's talk about everything!
           </h3>
 
-          <p className="text-custom-muted mb-4 fs-6 lh-base" style={{ maxWidth: '620px' }}>
+          <p className="text-custom-muted mb-4 fs-6 lh-base mx-auto mx-md-0" style={{ maxWidth: '620px' }}>
             Feel free to reach out to me for web development projects, freelance inquiries, or software engineering job opportunities.
           </p>
         </div>
@@ -89,7 +89,7 @@ export default function Contact() {
             </div>
 
             {/* Social Links (GitHub, LinkedIn, Instagram, WhatsApp) */}
-            <div className="d-flex align-items-center gap-3">
+            <div className="d-flex justify-content-center justify-content-md-start align-items-center gap-3">
               <a
                 href="https://github.com/chavdaamit1011-svg"
                 target="_blank"
