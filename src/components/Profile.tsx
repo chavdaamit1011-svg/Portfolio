@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import heroImg from '../assets/amit.jpeg'
 import BorderGlow from './BorderGlow'
 import SEO from './SEO'
+import { getDynamicExperience, getDynamicProjectsCount } from '../utils/dynamicStats'
 
 export default function Profile() {
   return (
@@ -126,13 +127,13 @@ export default function Profile() {
         <div className="row g-4 mb-5">
           <div className="col-md-4">
             <div className="custom-card p-4 text-center">
-              <h3 className="display-6 fw-bold text-cyan mb-1 font-heading">3+ Months</h3>
-              <p className="text-custom-muted mb-0 fw-medium">Diploma Experience</p>
+              <h3 className="display-6 fw-bold text-cyan mb-1 font-heading">{getDynamicExperience()}</h3>
+              <p className="text-custom-muted mb-0 fw-medium">Professional Experience</p>
             </div>
           </div>
           <div className="col-md-4">
             <div className="custom-card p-4 text-center">
-              <h3 className="display-6 fw-bold text-cyan mb-1 font-heading">5+ Live</h3>
+              <h3 className="display-6 fw-bold text-cyan mb-1 font-heading">{getDynamicProjectsCount()} Live</h3>
               <p className="text-custom-muted mb-0 fw-medium">Deployed Web Projects</p>
             </div>
           </div>

@@ -4,6 +4,7 @@ import featureEngCertImg from '../assets/Chavda Amit - Feature Engineering.png'
 import featureEngPdf from '../assets/certificate-u3jvgchsurj5-1785312229.pdf'
 import BorderGlow from './BorderGlow'
 import SEO from './SEO'
+import { getDynamicExperience, getDynamicProjectsCount } from '../utils/dynamicStats'
 
 export default function About() {
   const [selectedCert, setSelectedCert] = useState<any>(null)
@@ -214,20 +215,20 @@ export default function About() {
             <div className="row g-3">
               <div className="col-6 col-sm-4">
                 <div className="custom-card p-3 text-center">
-                  <h4 className="fs-3 fw-bold text-cyan mb-1">3+ Months</h4>
+                  <h4 className="fs-3 fw-bold text-cyan mb-1">{getDynamicExperience()}</h4>
                   <p className="text-custom-muted small mb-0">Experience</p>
                 </div>
               </div>
               <div className="col-6 col-sm-4">
                 <div className="custom-card p-3 text-center">
-                  <h4 className="fs-3 fw-bold text-cyan mb-1">5+ Live</h4>
+                  <h4 className="fs-3 fw-bold text-cyan mb-1">{getDynamicProjectsCount()} Live</h4>
                   <p className="text-custom-muted small mb-0">Projects</p>
                 </div>
               </div>
               <div className="col-12 col-sm-4">
                 <div className="custom-card p-3 text-center">
-                  <h4 className="fs-3 fw-bold text-cyan mb-1">MCA</h4>
-                  <p className="text-custom-muted small mb-0">Monark Univ</p>
+                  <h4 className="fs-3 fw-bold text-cyan mb-1">100%</h4>
+                  <p className="text-custom-muted small mb-0">Client Satisfaction</p>
                 </div>
               </div>
             </div>
@@ -304,7 +305,7 @@ export default function About() {
             </div>
 
             <p className="text-cyan small fw-medium mb-3">
-              <i className="bi bi-calendar-event me-1"></i> 1 May 2026 – Present (3+ Months)
+              <i className="bi bi-calendar-event me-1"></i> 1 May 2026 – Present ({getDynamicExperience()})
             </p>
 
             <p className="text-custom-muted fs-6 mb-0 lh-lg">

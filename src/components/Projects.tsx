@@ -18,7 +18,7 @@ interface Project {
   isExternal: boolean
 }
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     id: 'kingqueen',
     title: 'KingQueen (E-Commerce)',
