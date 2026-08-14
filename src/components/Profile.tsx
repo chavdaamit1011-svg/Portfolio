@@ -9,9 +9,9 @@ export default function Profile() {
   return (
     <section id="profile" className="py-4 position-relative">
       <SEO 
-        title="Chavda Amit | Freelancer"
-        description="Full Stack Web & Next.js Developer Profile for Chavda Amit. Specializing in MERN Stack, React, Next.js, and custom freelance web development."
-        keywords="Chavda Amit Profile, Best Nextjs Developer Profile, Full Stack Developer, Freelance Developer"
+        title="Amit Chavda | Full Stack Developer Profile"
+        description="Full Stack Web & Next.js Developer Profile for Amit Chavda. Specializing in MERN Stack, React, Next.js, and custom web development."
+        keywords="Amit Chavda Profile, Full Stack Developer Profile, MERN Stack Developer"
       />
       <div className="container py-2 max-w-5xl mx-auto">
         {/* Section Heading */}

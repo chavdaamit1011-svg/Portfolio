@@ -156,9 +156,9 @@ export default function About() {
   return (
     <section id="about" className="py-4 position-relative">
       <SEO 
-        title="Chavda Amit | About Me"
-        description="Learn about Chavda Amit - Best Full Stack Web Developer & Next.js specialist delivering high-performance custom web applications and freelance web development services."
-        keywords="About Chavda Amit, Best Nextjs Developer, Best Web Developer, Freelance Developer India, Full Stack Developer Portfolio"
+        title="Amit Chavda | About Me & Career Experience"
+        description="Learn about Amit Chavda - MERN Stack Developer & Full Stack Web Developer specializing in React.js, Next.js, and Node.js. Currently developing at Kalpit Evolution."
+        keywords="About Amit Chavda, MERN Stack Developer, Full Stack Developer, Kalpit Evolution Developer"
       />
       <div className="container py-2">
         {/* Section Heading */}

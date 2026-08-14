@@ -4,14 +4,24 @@ interface SEOProps {
   title?: string
   description?: string
   keywords?: string
+  canonicalUrl?: string
 }
 
-export default function SEO({ title, description, keywords }: SEOProps) {
+export default function SEO({ title, description, keywords, canonicalUrl = 'https://chavdaamit.in/' }: SEOProps) {
   useEffect(() => {
     // Dynamic Page Title
     if (title) {
       document.title = title
     }
+
+    // Dynamic Canonical Link Tag
+    let canonicalLink = document.querySelector('link[rel="canonical"]')
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link')
+      canonicalLink.setAttribute('rel', 'canonical')
+      document.head.appendChild(canonicalLink)
+    }
+    canonicalLink.setAttribute('href', canonicalUrl)
 
     // Meta Description
     if (description) {
@@ -22,6 +32,11 @@ export default function SEO({ title, description, keywords }: SEOProps) {
         document.head.appendChild(metaDesc)
       }
       metaDesc.setAttribute('content', description)
+
+      let ogDesc = document.querySelector('meta[property="og:description"]')
+      if (ogDesc) {
+        ogDesc.setAttribute('content', description)
+      }
     }
 
     // Meta Keywords
@@ -34,7 +49,16 @@ export default function SEO({ title, description, keywords }: SEOProps) {
       }
       metaKeywords.setAttribute('content', keywords)
     }
-  }, [title, description, keywords])
+
+    // Update Open Graph Title
+    if (title) {
+      let ogTitle = document.querySelector('meta[property="og:title"]')
+      if (ogTitle) {
+        ogTitle.setAttribute('content', title)
+      }
+    }
+  }, [title, description, keywords, canonicalUrl])
 
   return null
 }
+

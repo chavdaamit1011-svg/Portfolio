@@ -4,9 +4,33 @@ import SEO from './SEO'
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    setErrorMsg('')
+
+    const trimmedName = formData.name.trim()
+    const trimmedEmail = formData.email.trim().toLowerCase()
+    const trimmedMessage = formData.message.trim()
+
+    // Strict Input Schema Validation
+    if (trimmedName.length < 2 || trimmedName.length > 100) {
+      setErrorMsg('Please enter a valid name (2-100 characters).')
+      return
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    if (!emailRegex.test(trimmedEmail) || trimmedEmail.length > 120) {
+      setErrorMsg('Please enter a valid email address.')
+      return
+    }
+
+    if (trimmedMessage.length < 5 || trimmedMessage.length > 2000) {
+      setErrorMsg('Please enter a message between 5 and 2000 characters.')
+      return
+    }
+
     setSubmitted(true)
     setTimeout(() => {
       setSubmitted(false)
@@ -17,9 +41,9 @@ export default function Contact() {
   return (
     <section id="contact" className="py-4 position-relative">
       <SEO 
-        title="Chavda Amit | Contact"
-        description="Hire Chavda Amit for custom freelance web development, Next.js applications, and full-stack web solutions. Available for remote work & freelance projects."
-        keywords="Hire Freelance Developer, Contact Chavda Amit, Best Web Developer Contact, Freelance Next.js Developer Hire"
+        title="Amit Chavda | Contact & Hire MERN Stack Developer"
+        description="Contact Amit Chavda for custom freelance web development, Next.js applications, and full-stack MERN web solutions."
+        keywords="Contact Amit Chavda, Hire MERN Developer, Hire Full Stack Developer, Freelance Web Developer"
       />
       <div className="container py-2 max-w-6xl mx-auto">
         {/* Section Heading */}
@@ -48,92 +72,87 @@ export default function Contact() {
         {/* 2-Column Row starting EXACTLY at Location Card & Contact Form Card */}
         <div className="row g-4 g-lg-5 align-items-start">
           {/* Left Column: Location, Email, Phone Cards + Social Icons */}
-          <div className="col-lg-5 mb-4 mb-lg-0">
-            <div className="d-flex flex-column gap-3 mb-4">
+          <div className="col-lg-5">
+            <div className="d-flex flex-column gap-3.5">
               {/* Location Card */}
-              <div className="custom-card p-3 d-flex align-items-center gap-3">
-                <div className="contact-icon-wrapper rounded-circle d-flex align-items-center justify-content-center text-primary bg-primary bg-opacity-10">
+              <div className="custom-card p-3.5 d-flex align-items-center gap-3">
+                <div className="rounded-circle p-2.5 bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: '48px', height: '48px' }}>
                   <i className="bi bi-geo-alt-fill fs-5"></i>
                 </div>
                 <div>
-                  <h5 className="fs-6 fw-bold text-custom-heading mb-1">Location</h5>
-                  <p className="text-custom-muted small mb-0">Naroda, Ahmedabad, Gujarat - 382340</p>
+                  <h5 className="fs-6 fw-bold text-custom-heading mb-1 font-heading">Location</h5>
+                  <p className="text-custom-muted small mb-0 fw-medium">Naroda, Ahmedabad, Gujarat - 382340</p>
                 </div>
               </div>
 
-              {/* Email Card */}
-              <div className="custom-card p-3 d-flex align-items-center gap-3">
-                <div className="contact-icon-wrapper rounded-circle d-flex align-items-center justify-content-center text-primary bg-primary bg-opacity-10">
+              {/* Email Card (Clickable) */}
+              <div className="custom-card p-3.5 d-flex align-items-center gap-3">
+                <div className="rounded-circle p-2.5 bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: '48px', height: '48px' }}>
                   <i className="bi bi-envelope-fill fs-5"></i>
                 </div>
                 <div>
-                  <h5 className="fs-6 fw-bold text-custom-heading mb-1">Email</h5>
-                  <a href="mailto:chavdaamit1011@gmail.com" className="text-custom-muted small text-decoration-none hover-white mb-0 text-break d-block">
+                  <h5 className="fs-6 fw-bold text-custom-heading mb-1 font-heading">Email</h5>
+                  <a href="mailto:chavdaamit1011@gmail.com" className="text-cyan small fw-semibold text-decoration-none hover-underline">
                     chavdaamit1011@gmail.com
                   </a>
                 </div>
               </div>
 
-              {/* Phone Card */}
-              <div className="custom-card p-3 d-flex align-items-center gap-3">
-                <div className="contact-icon-wrapper rounded-circle d-flex align-items-center justify-content-center text-primary bg-primary bg-opacity-10">
+              {/* Phone Card (Clickable) */}
+              <div className="custom-card p-3.5 d-flex align-items-center gap-3">
+                <div className="rounded-circle p-2.5 bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: '48px', height: '48px' }}>
                   <i className="bi bi-telephone-fill fs-5"></i>
                 </div>
                 <div>
-                  <h5 className="fs-6 fw-bold text-custom-heading mb-1">Phone</h5>
-                  <a href="tel:+919998320342" className="text-custom-muted small text-decoration-none hover-white mb-0">
+                  <h5 className="fs-6 fw-bold text-custom-heading mb-1 font-heading">Phone</h5>
+                  <a href="tel:+919998320342" className="text-cyan small fw-semibold text-decoration-none hover-underline">
                     +91-9998320342
                   </a>
                 </div>
               </div>
-            </div>
 
-            {/* Social Links (GitHub, LinkedIn, Instagram, WhatsApp) */}
-            <div className="d-flex justify-content-center justify-content-md-start align-items-center gap-3">
-              <a
-                href="https://github.com/chavdaamit1011-svg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
-                style={{ width: '45px', height: '45px' }}
-                aria-label="GitHub"
-                title="GitHub"
-              >
-                <i className="bi bi-github fs-5 text-github"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/amit-chavda-9ab181355/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
-                style={{ width: '45px', height: '45px' }}
-                aria-label="LinkedIn"
-                title="LinkedIn"
-              >
-                <i className="bi bi-linkedin fs-5 text-linkedin"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/chavda_amit_111/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
-                style={{ width: '45px', height: '45px' }}
-                aria-label="Instagram"
-                title="Instagram"
-              >
-                <i className="bi bi-instagram fs-5 text-instagram"></i>
-              </a>
-              <a
-                href="https://wa.me/919998320342"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
-                style={{ width: '45px', height: '45px' }}
-                aria-label="WhatsApp"
-                title="WhatsApp"
-              >
-                <i className="bi bi-whatsapp fs-5 text-whatsapp"></i>
-              </a>
+              {/* Social Media Connect Row */}
+              <div className="custom-card p-3.5 text-center">
+                <h5 className="fs-6 fw-bold text-custom-heading mb-3 font-heading">Follow & Connect</h5>
+                <div className="d-flex justify-content-center align-items-center gap-3">
+                  <a
+                    href="https://github.com/chavdaamit1011-svg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-drawer-icon social-icon-github"
+                    title="GitHub"
+                  >
+                    <i className="bi bi-github fs-5 text-github"></i>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/amit-chavda-9ab181355/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-drawer-icon social-icon-linkedin"
+                    title="LinkedIn"
+                  >
+                    <i className="bi bi-linkedin fs-5 text-linkedin"></i>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/chavda_amit_111/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-drawer-icon social-icon-instagram"
+                    title="Instagram"
+                  >
+                    <i className="bi bi-instagram fs-5 text-instagram"></i>
+                  </a>
+                  <a
+                    href="https://wa.me/919998320342"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-drawer-icon social-icon-whatsapp"
+                    title="WhatsApp"
+                  >
+                    <i className="bi bi-whatsapp fs-5 text-whatsapp"></i>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -163,6 +182,12 @@ export default function Contact() {
                 <h4 className="fs-5 fw-bold text-custom-heading mb-0">Send me a message</h4>
               </div>
 
+              {errorMsg && (
+                <div className="alert alert-danger py-2 px-3 mb-3 small" role="alert">
+                  {errorMsg}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit}>
                 <div className="row g-3 mb-3">
                   <div className="col-md-6">
@@ -171,6 +196,8 @@ export default function Contact() {
                       <input
                         type="text"
                         required
+                        minLength={2}
+                        maxLength={100}
                         placeholder="Your Name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -184,6 +211,8 @@ export default function Contact() {
                       <input
                         type="email"
                         required
+                        maxLength={120}
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                         placeholder="Your Email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -199,6 +228,8 @@ export default function Contact() {
                     <textarea
                       rows={3}
                       required
+                      minLength={5}
+                      maxLength={2000}
                       placeholder="Your Message"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}

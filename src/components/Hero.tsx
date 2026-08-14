@@ -48,9 +48,9 @@ export default function Hero() {
       style={{ paddingTop: '100px', paddingBottom: '60px' }}
     >
       <SEO 
-        title="Chavda Amit | Portfolio"
-        description="Chavda Amit is a top Full Stack Developer & Next.js expert building high-performance web applications. Available for freelance projects & custom web development."
-        keywords="Best Developer, Best Nextjs Developer, Best Website Developer, Freelance Web Developer, Chavda Amit, Full Stack Developer, MERN Stack Developer, Custom Web Development"
+        title="Amit Chavda | MERN Stack Developer & Full Stack Developer"
+        description="Amit Chavda is a MERN Stack Developer and Full Stack Web Developer building high-performance web applications using React.js, Next.js, Node.js, Express, and MongoDB."
+        keywords="Amit Chavda, MERN Stack Developer, Full Stack Developer, React.js Developer, Next.js Developer, Node.js Developer, Portfolio"
       />
 
       <div className="bg-ambient-light" style={{ top: '20%', left: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}></div>
