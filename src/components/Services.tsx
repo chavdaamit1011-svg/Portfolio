@@ -39,7 +39,7 @@ export default function Services() {
   return (
     <section id="services" className="py-4 position-relative">
       <SEO 
-        title="Web & Freelance Development Services | Chavda Amit - Best Next.js Developer"
+        title="Chavda Amit | Freelancer"
         description="High-performance custom web development, full-stack Next.js apps, React frontend, and freelance web development services by Chavda Amit."
         keywords="Freelance Web Developer, Best Website Developer, Best Nextjs Developer, Custom Web Development, React Developer Services"
       />

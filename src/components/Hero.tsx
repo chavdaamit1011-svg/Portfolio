@@ -48,7 +48,7 @@ export default function Hero() {
       style={{ paddingTop: '100px', paddingBottom: '60px' }}
     >
       <SEO 
-        title="Chavda Amit | Best Full Stack & Next.js Developer | Freelance Web Developer"
+        title="Chavda Amit | Portfolio"
         description="Chavda Amit is a top Full Stack Developer & Next.js expert building high-performance web applications. Available for freelance projects & custom web development."
         keywords="Best Developer, Best Nextjs Developer, Best Website Developer, Freelance Web Developer, Chavda Amit, Full Stack Developer, MERN Stack Developer, Custom Web Development"
       />

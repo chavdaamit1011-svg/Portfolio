@@ -156,7 +156,7 @@ export default function About() {
   return (
     <section id="about" className="py-4 position-relative">
       <SEO 
-        title="About Chavda Amit | Best Next.js & MERN Stack Web Developer"
+        title="Chavda Amit | About Me"
         description="Learn about Chavda Amit - Best Full Stack Web Developer & Next.js specialist delivering high-performance custom web applications and freelance web development services."
         keywords="About Chavda Amit, Best Nextjs Developer, Best Web Developer, Freelance Developer India, Full Stack Developer Portfolio"
       />

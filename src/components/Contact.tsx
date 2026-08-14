@@ -17,7 +17,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-4 position-relative">
       <SEO 
-        title="Contact & Hire Chavda Amit | Best Freelance Web Developer"
+        title="Chavda Amit | Contact"
         description="Hire Chavda Amit for custom freelance web development, Next.js applications, and full-stack web solutions. Available for remote work & freelance projects."
         keywords="Hire Freelance Developer, Contact Chavda Amit, Best Web Developer Contact, Freelance Next.js Developer Hire"
       />
