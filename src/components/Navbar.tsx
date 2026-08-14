@@ -77,34 +77,44 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
     }
   }, [isMobileMenuOpen, isProfileDrawerOpen])
 
-  // Global Right-to-Left Touch Swipe gesture to open Profile Drawer on Mobile screens
+  // Global Instant Right-to-Left Touch Swipe gesture to open Profile Drawer on Mobile screens
   useEffect(() => {
     let startX = 0
     let startY = 0
+    let isSwiping = false
 
     const handleGlobalTouchStart = (e: TouchEvent) => {
+      if (isProfileDrawerOpen || e.touches.length > 1) return
       startX = e.touches[0].clientX
       startY = e.touches[0].clientY
+      isSwiping = true
     }
 
-    const handleGlobalTouchEnd = (e: TouchEvent) => {
-      if (isProfileDrawerOpen) return
-      const endX = e.changedTouches[0].clientX
-      const endY = e.changedTouches[0].clientY
-      const deltaX = endX - startX
-      const deltaY = endY - startY
+    const handleGlobalTouchMove = (e: TouchEvent) => {
+      if (!isSwiping || isProfileDrawerOpen) return
+      const currentX = e.touches[0].clientX
+      const currentY = e.touches[0].clientY
+      const deltaX = currentX - startX
+      const deltaY = currentY - startY
 
-      // Trigger ProfileDrawer open on mobile when swiping Right-to-Left (deltaX < -50px)
-      if (Math.abs(deltaX) > Math.abs(deltaY) && deltaX < -50 && window.innerWidth <= 768) {
+      // Trigger ProfileDrawer open INSTANTLY on mobile when swiping Right-to-Left (finger moves left by > 40px)
+      if (deltaX < -40 && Math.abs(deltaX) > Math.abs(deltaY) && window.innerWidth <= 768) {
+        isSwiping = false
         setIsProfileDrawerOpen(true)
       }
     }
 
+    const handleGlobalTouchEnd = () => {
+      isSwiping = false
+    }
+
     window.addEventListener('touchstart', handleGlobalTouchStart, { passive: true })
+    window.addEventListener('touchmove', handleGlobalTouchMove, { passive: true })
     window.addEventListener('touchend', handleGlobalTouchEnd, { passive: true })
 
     return () => {
       window.removeEventListener('touchstart', handleGlobalTouchStart)
+      window.removeEventListener('touchmove', handleGlobalTouchMove)
       window.removeEventListener('touchend', handleGlobalTouchEnd)
     }
   }, [isProfileDrawerOpen])
@@ -131,10 +141,10 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
         onClose={() => setIsProfileDrawerOpen(false)} 
       />
 
-      <header ref={headerRef} className={`fixed-top w-100 z-50 transition-all ${isScrolled || isMobileMenuOpen ? 'py-2' : 'py-3'}`}>
-        <div className={`w-100 transition-all ${isScrolled || isMobileMenuOpen ? 'container px-3 px-lg-4' : 'container-fluid px-4 px-lg-5'}`}>
+      <header ref={headerRef} className="fixed-top w-100 z-50 py-2">
+        <div className="container px-3 px-lg-4">
           {/* Single Unified Floating Navbar Header Bar with Frosted Backdrop Blur */}
-          <div className={`unified-navbar-bar d-flex align-items-center justify-content-between ps-1 ps-md-2 pe-3 pe-md-4 py-1.5 ${isScrolled || isMobileMenuOpen ? 'scrolled' : ''}`}>
+          <div className="unified-navbar-bar d-flex align-items-center justify-content-between ps-1 ps-md-2 pe-3 pe-md-4 py-1.5">
             
             {/* PART 1: LEFT (Brand AC Logo + Vertical Separator Line |) */}
             <div className="d-flex align-items-center">
