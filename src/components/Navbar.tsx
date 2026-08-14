@@ -97,8 +97,8 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
       const deltaX = currentX - startX
       const deltaY = currentY - startY
 
-      // Trigger ProfileDrawer open INSTANTLY on mobile when swiping Right-to-Left (finger moves left by > 40px)
-      if (deltaX < -40 && Math.abs(deltaX) > Math.abs(deltaY) && window.innerWidth <= 768) {
+      // Trigger ProfileDrawer open INSTANTLY on mobile when swiping Left-to-Right (finger moves right by > 40px)
+      if (deltaX > 40 && Math.abs(deltaX) > Math.abs(deltaY) && window.innerWidth <= 768) {
         isSwiping = false
         setIsProfileDrawerOpen(true)
       }
@@ -168,7 +168,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                   />
                 </div>
               </div>
-              <div className="nav-vertical-divider d-none d-sm-block"></div>
+              <div className="nav-vertical-divider d-block"></div>
             </div>
 
             {/* PART 2: CENTER (Navigation Links - Integrated Inline inside Unified Header Bar) */}

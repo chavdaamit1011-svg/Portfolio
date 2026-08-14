@@ -121,8 +121,8 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
     const deltaX = touchEndXRef.current - touchStartXRef.current
     const deltaY = touchEndYRef.current - touchStartYRef.current
 
-    // Trigger close if horizontal swipe is dominant and distance > 45px
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 45) {
+    // Trigger close if horizontal swipe is Right-to-Left (deltaX < -40px)
+    if (deltaX < -40 && Math.abs(deltaX) > Math.abs(deltaY)) {
       handleClose()
     }
 

@@ -36,7 +36,7 @@ function AppContent({ theme, toggleTheme }: { theme: ThemeMode; toggleTheme: () 
     <div className="min-vh-100 position-relative overflow-hidden">
       <ScrollToTop />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main style={{ paddingTop: isHomePage ? '0px' : '85px' }}>
+      <main style={{ paddingTop: isHomePage ? '0px' : '65px' }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
