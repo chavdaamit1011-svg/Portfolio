@@ -1,33 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react'
 import heroImg from '../assets/amit.jpeg'
+import coverVideo from '../assets/ya_Wide_Banner_Lan.mp4'
 
 interface ProfileDrawerProps {
   isOpen: boolean
   onClose: () => void
 }
 
-interface CoverMedia {
-  url: string
-  type: 'image' | 'video'
-}
-
 export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
   const [shouldRender, setShouldRender] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
-  const [coverMedia, setCoverMedia] = useState<CoverMedia | null>(() => {
-    const saved = localStorage.getItem('portfolio_cover_media')
-    if (saved) {
-      try {
-        return JSON.parse(saved)
-      } catch (e) {
-        return null
-      }
-    }
-    return null
-  })
-
-  const fileInputRef = useRef<HTMLInputElement | null>(null)
-
   const scrollPositionRef = useRef(0)
 
   // Handle smooth entrance and exit animations & background scroll locking
@@ -56,40 +38,6 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
     setTimeout(() => {
       onClose()
     }, 300)
-  }
-
-  const handleBannerClick = () => {
-    fileInputRef.current?.click()
-  }
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (!file) return
-
-    const isVideo = file.type.startsWith('video/')
-    const reader = new FileReader()
-    reader.onload = (event) => {
-      const result = event.target?.result as string
-      if (result) {
-        const mediaObj: CoverMedia = {
-          url: result,
-          type: isVideo ? 'video' : 'image',
-        }
-        setCoverMedia(mediaObj)
-        try {
-          localStorage.setItem('portfolio_cover_media', JSON.stringify(mediaObj))
-        } catch (err) {
-          console.warn('Cover media storage fallback used', err)
-        }
-      }
-    }
-    reader.readAsDataURL(file)
-  }
-
-  const handleRemoveCover = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    setCoverMedia(null)
-    localStorage.removeItem('portfolio_cover_media')
   }
 
   // Touch swipe gesture logic to close drawer on mobile screen swipe (Right to Left or Left to Right)
@@ -138,102 +86,99 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
     <>
       {/* Click outside Backdrop Overlay */}
       <div 
-        className={`profile-drawer-backdrop ${isClosing ? 'closing' : ''}`} 
-        onClick={handleClose} 
+        className={`profile-drawer-backdrop position-fixed vh-100 vw-100 ${isClosing ? 'fade-out' : 'fade-in'}`}
+        onClick={handleClose}
+        style={{ zIndex: 99998 }}
       />
 
-      {/* Floating Popover Single Unified Profile Panel Card */}
+      {/* Floating Card Popover Container */}
       <div 
-        className={`profile-drawer-floating-card ${isClosing ? 'closing' : ''}`}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
+        className="profile-drawer-container position-fixed vh-100 vw-100 d-flex align-items-center justify-content-center p-3 p-md-4" 
+        style={{ zIndex: 99999, cursor: 'pointer' }}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) {
+            handleClose()
+          }
+        }}
       >
-        <div className="profile-drawer-scrollable h-100 d-flex flex-column">
-          
-          {/* Hidden File Input for Custom Image/Video Upload */}
-          <input 
-            type="file" 
-            ref={fileInputRef} 
-            onChange={handleFileChange} 
-            accept="image/*,video/*" 
-            className="d-none" 
-          />
+        <div 
+          className={`profile-drawer-floating-card rounded-4 shadow-2xl overflow-hidden d-flex flex-column ${isClosing ? 'popover-exit-left' : 'popover-enter-right'}`}
+          style={{ cursor: 'default' }}
+          onClick={(e) => e.stopPropagation()}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="profile-drawer-scrollable h-100 d-flex flex-column">
+            
+            {/* 1. TOP COVER HEADER WITH PERMANENT ANIMATED VIDEO BACKGROUND */}
+            <div 
+              className="profile-drawer-cover position-relative overflow-hidden flex-shrink-0"
+              style={{ height: '125px' }}
+            >
+              <video 
+                src={coverVideo} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="profile-cover-media"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              
+              {/* Top-Left: Sleek Glass Status Badge "● Hire me." */}
+              <span 
+                className="profile-status-badge position-absolute d-inline-flex align-items-center gap-1.5 px-3 py-1.5 rounded-pill fw-semibold text-white shadow-md" 
+                style={{ 
+                  top: '14px', 
+                  left: '16px', 
+                  zIndex: 6, 
+                  fontSize: '0.76rem',
+                  background: 'rgba(15, 23, 42, 0.78)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.35)'
+                }}
+              >
+                <span className="pulse-dot-green"></span> Hire me.
+              </span>
 
-          {/* 1. TOP GRADIENT HEADER (Blue -> Purple -> Cyan Gradient Banner) */}
-          <div 
-            className="profile-drawer-cover position-relative cursor-pointer overflow-hidden flex-shrink-0"
-            onClick={handleBannerClick}
-            title="Click to upload custom cover image or video"
-            style={{ height: '120px' }}
-          >
-            {coverMedia ? (
-              coverMedia.type === 'video' ? (
-                <video 
-                  src={coverMedia.url} 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  className="profile-cover-media"
-                />
-              ) : (
-                <img 
-                  src={coverMedia.url} 
-                  alt="Custom Cover" 
-                  className="profile-cover-media" 
-                />
-              )
-            ) : (
-              <div className="profile-cover-gradient"></div>
-            )}
-
-            {/* Hover Upload Overlay Hint */}
-            <div className="profile-cover-upload-hint d-flex align-items-center justify-content-center gap-2">
-              <i className="bi bi-camera-fill fs-5"></i>
-              <span className="small fw-medium">Upload Image / Video</span>
+              {/* Top-Right: Circular dark close button with white 'X' */}
+              <button 
+                className="profile-drawer-close position-absolute btn rounded-circle text-white d-flex align-items-center justify-content-center p-0 shadow-md"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleClose()
+                }}
+                aria-label="Close Profile Drawer"
+                style={{ 
+                  top: '14px', 
+                  right: '16px', 
+                  width: '32px', 
+                  height: '32px', 
+                  zIndex: 6,
+                  background: 'rgba(15, 23, 42, 0.78)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.35)'
+                }}
+              >
+                <i className="bi bi-x-lg fs-6"></i>
+              </button>
             </div>
 
-            {/* Reset Cover Button */}
-            {coverMedia && (
-              <button 
-                className="btn btn-sm btn-dark bg-opacity-75 text-white rounded-circle position-absolute bottom-0 end-0 m-2 p-0 d-flex align-items-center justify-content-center border-0"
-                style={{ width: '28px', height: '28px', zIndex: 10 }}
-                onClick={handleRemoveCover}
-                title="Reset to default cover"
-              >
-                <i className="bi bi-arrow-counterclockwise micro-text"></i>
-              </button>
-            )}
-            
-            {/* Top-Left: Small dark status pill "● Hire me." */}
-            <span className="profile-status-badge position-absolute top-0 start-0 m-3 d-inline-flex align-items-center gap-2 px-3 py-1.5 rounded-pill small fw-semibold text-white bg-dark bg-opacity-60 backdrop-blur border border-white border-opacity-20 shadow-sm" style={{ zIndex: 6 }}>
-              <span className="pulse-dot-green"></span> Hire me.
-            </span>
-
-            {/* Top-Right: Circular dark close button with white 'X' */}
-            <button 
-              className="profile-drawer-close position-absolute top-0 end-0 m-3 btn btn-sm rounded-circle text-white bg-dark bg-opacity-60 border border-white border-opacity-20 d-flex align-items-center justify-content-center p-0"
-              onClick={(e) => {
-                e.stopPropagation()
-                handleClose()
-              }}
-              aria-label="Close Profile Drawer"
-              style={{ width: '32px', height: '32px', zIndex: 6 }}
-            >
-              <i className="bi bi-x-lg fs-6"></i>
-            </button>
-          </div>
-
-          {/* 2. PROFILE PHOTO (Overlapping 115px Circular Avatar) */}
-          <div className="profile-drawer-avatar-wrapper text-center px-4 flex-shrink-0" style={{ marginTop: '-48px' }}>
-            <div className="profile-avatar-ring d-inline-block">
-              <img 
-                src={heroImg} 
-                alt="Chavda Amit Profile" 
-                className="profile-drawer-avatar img-fluid rounded-circle"
-                style={{ width: '115px', height: '115px', border: '4px solid var(--bg-secondary)' }}
-              />
+            {/* 2. PROFILE PHOTO (Overlapping 115px Circular Avatar) */}
+            <div className="profile-drawer-avatar-wrapper text-center px-4 flex-shrink-0" style={{ marginTop: '-48px' }}>
+              <div className="profile-avatar-ring d-inline-block">
+                <img 
+                  src={heroImg} 
+                  alt="Chavda Amit Profile" 
+                  className="profile-drawer-avatar img-fluid rounded-circle"
+                  style={{ width: '115px', height: '115px', border: 'none', boxShadow: 'none' }}
+                />
+              </div>
             </div>
           </div>
 

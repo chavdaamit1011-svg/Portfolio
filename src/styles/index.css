@@ -1292,13 +1292,13 @@ body {
   }
 
   .profile-status-badge {
-    margin: 0.5rem !important;
+    margin: 0 !important;
     font-size: 0.72rem !important;
     padding: 0.25rem 0.6rem !important;
   }
 
   .profile-drawer-close {
-    margin: 0.5rem !important;
+    margin: 0 !important;
   }
 }
 
@@ -1353,18 +1353,7 @@ body {
 }
 
 .profile-cover-upload-hint {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  color: #ffffff;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  z-index: 4;
-  cursor: pointer;
-}
-
-.profile-drawer-cover:hover .profile-cover-upload-hint {
-  opacity: 1;
+  display: none !important;
 }
 
 .profile-drawer-avatar-wrapper {
