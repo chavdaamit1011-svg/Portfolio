@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from './SEO'
+import resumePdf from '../assets/Amit-1.pdf.pdf'
 
 const phrases = [
   'Full Stack Web Developer',
@@ -94,9 +95,11 @@ export default function Hero() {
             Contact Me
           </Link>
           <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
-            className="btn btn-cyan rounded-pill px-4 py-3 fs-6 position-relative z-2 d-none d-md-inline-flex align-items-center justify-content-center gap-2"
+            href={resumePdf}
+            download="Amit_Chavda_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-cyan rounded-pill px-4 py-3 fs-6 position-relative z-2 d-none d-md-inline-flex align-items-center justify-content-center gap-2 text-decoration-none"
             style={{ minWidth: '185px', maxWidth: '100%' }}
           >
             <i className="bi bi-download"></i> Download Resume

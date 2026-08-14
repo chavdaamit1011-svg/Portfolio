@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import heroImg from '../assets/amit.jpeg'
+import resumePdf from '../assets/Amit-1.pdf.pdf'
 import BorderGlow from './BorderGlow'
 import SEO from './SEO'
 import { getDynamicExperience, getDynamicProjectsCount } from '../utils/dynamicStats'
@@ -112,9 +113,11 @@ export default function Profile() {
                     Get In Touch
                   </Link>
                   <a
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
-                    className="btn btn-cyan rounded-pill px-4 py-2.5 fs-6 d-inline-flex align-items-center gap-2"
+                    href={resumePdf}
+                    download="Amit_Chavda_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-cyan rounded-pill px-4 py-2.5 fs-6 d-inline-flex align-items-center gap-2 text-decoration-none"
                   >
                     <i className="bi bi-download"></i> Resume
                   </a>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import heroImg from '../assets/amit.jpeg'
 import coverVideo from '../assets/ya_Wide_Banner_Lan.mp4'
+import resumePdf from '../assets/Amit-1.pdf.pdf'
 
 interface ProfileDrawerProps {
   isOpen: boolean
@@ -292,9 +293,11 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
             {/* 6. PRIMARY RESUME DOWNLOAD BUTTON */}
             <div>
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                className="btn btn-cyan rounded-pill py-2.5 px-4 fs-6 w-100 d-flex align-items-center justify-content-center gap-2 fw-semibold shadow-sm"
+                href={resumePdf}
+                download="Amit_Chavda_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-cyan rounded-pill py-2.5 px-4 fs-6 w-100 d-flex align-items-center justify-content-center gap-2 fw-semibold shadow-sm text-decoration-none"
                 style={{ height: '48px' }}
               >
                 <i className="bi bi-download"></i> Download Resume

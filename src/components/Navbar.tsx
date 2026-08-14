@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import logoAmit from '../assets/logoAmit.png'
+import resumePdf from '../assets/Amit-1.pdf.pdf'
 import ProfileDrawer from './ProfileDrawer'
 
 interface NavbarProps {
@@ -291,12 +292,12 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                 </NavLink>
 
                 <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    closeMobileMenu();
-                  }}
-                  className="btn btn-cyan rounded-pill py-2.5 px-3 fs-6 d-flex align-items-center justify-content-center gap-2 mt-2"
+                  href={resumePdf}
+                  download="Amit_Chavda_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMobileMenu}
+                  className="btn btn-cyan rounded-pill py-2.5 px-3 fs-6 d-flex align-items-center justify-content-center gap-2 mt-2 text-decoration-none"
                 >
                   <i className="bi bi-download"></i> Download Resume
                 </a>
