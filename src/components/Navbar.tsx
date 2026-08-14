@@ -61,6 +61,22 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
     }
   }, [isMobileMenuOpen])
 
+  // Lock background body scroll when mobile navigation menu is open
+  const navScrollPosRef = useRef(0)
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      navScrollPosRef.current = window.scrollY
+      document.body.style.overflow = 'hidden'
+    } else {
+      if (!isProfileDrawerOpen) {
+        document.body.style.overflow = ''
+      }
+      if (typeof window !== 'undefined' && navScrollPosRef.current) {
+        window.scrollTo(0, navScrollPosRef.current)
+      }
+    }
+  }, [isMobileMenuOpen, isProfileDrawerOpen])
+
   return (
     <>
       {/* Click-outside backdrop overlay when mobile menu is expanded */}

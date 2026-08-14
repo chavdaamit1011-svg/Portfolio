@@ -28,9 +28,12 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
 
   const fileInputRef = useRef<HTMLInputElement | null>(null)
 
-  // Handle smooth entrance and exit animations
+  const scrollPositionRef = useRef(0)
+
+  // Handle smooth entrance and exit animations & background scroll locking
   useEffect(() => {
     if (isOpen) {
+      scrollPositionRef.current = window.scrollY
       setShouldRender(true)
       setIsClosing(false)
       document.body.style.overflow = 'hidden'
@@ -40,6 +43,9 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
         setShouldRender(false)
         setIsClosing(false)
         document.body.style.overflow = ''
+        if (typeof window !== 'undefined' && scrollPositionRef.current) {
+          window.scrollTo(0, scrollPositionRef.current)
+        }
       }, 300)
       return () => clearTimeout(timer)
     }

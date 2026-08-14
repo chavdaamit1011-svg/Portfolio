@@ -68,7 +68,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h5 className="fs-6 fw-bold text-custom-heading mb-1">Email</h5>
-                  <a href="mailto:chavdaamit1011@gmail.com" className="text-custom-muted small text-decoration-none hover-white mb-0">
+                  <a href="mailto:chavdaamit1011@gmail.com" className="text-custom-muted small text-decoration-none hover-white mb-0 text-break d-block">
                     chavdaamit1011@gmail.com
                   </a>
                 </div>

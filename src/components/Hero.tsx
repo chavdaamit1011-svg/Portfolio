@@ -77,14 +77,14 @@ export default function Hero() {
           <Link
             to="/projects"
             className="btn btn-cyan rounded-pill px-4 py-3 fs-6 position-relative z-2 d-inline-flex align-items-center justify-content-center"
-            style={{ minWidth: '165px' }}
+            style={{ minWidth: '165px', maxWidth: '100%' }}
           >
             View My Work
           </Link>
           <Link
             to="/contact"
             className="btn btn-outline-cyan rounded-pill px-4 py-3 fs-6 position-relative z-2 d-inline-flex align-items-center justify-content-center"
-            style={{ minWidth: '165px' }}
+            style={{ minWidth: '165px', maxWidth: '100%' }}
           >
             Contact Me
           </Link>
@@ -92,7 +92,7 @@ export default function Hero() {
             href="#"
             onClick={(e) => e.preventDefault()}
             className="btn btn-cyan rounded-pill px-4 py-3 fs-6 position-relative z-2 d-none d-md-inline-flex align-items-center justify-content-center gap-2"
-            style={{ minWidth: '185px' }}
+            style={{ minWidth: '185px', maxWidth: '100%' }}
           >
             <i className="bi bi-download"></i> Download Resume
           </a>
