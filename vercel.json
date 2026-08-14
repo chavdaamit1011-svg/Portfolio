@@ -1,21 +1,5 @@
 {
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.chavdaamit.in"
-        }
-      ],
-      "destination": "https://chavdaamit.in/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
-    {
-      "source": "/((?!robots\\.txt|sitemap\\.xml|assets/|.*\\..*).*)",
-      "destination": "/index.html"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
