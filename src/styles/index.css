@@ -1456,11 +1456,38 @@ body {
   transition: all 0.25s ease;
 }
 
+/* Official Brand Icon Colors */
+.text-github {
+  color: #a855f7 !important;
+}
+
+[data-theme='light'] .text-github {
+  color: #181717 !important;
+}
+
+.text-linkedin {
+  color: #0a66c2 !important;
+}
+
+.text-instagram {
+  color: #e1306c !important;
+}
+
+.text-whatsapp {
+  color: #25d366 !important;
+}
+
 /* Official Brand Colored Social Icons */
 .social-icon-github {
   color: #a855f7 !important;
   background: rgba(168, 85, 247, 0.1) !important;
   border-color: rgba(168, 85, 247, 0.25) !important;
+}
+
+[data-theme='light'] .social-icon-github {
+  color: #181717 !important;
+  background: rgba(24, 23, 23, 0.08) !important;
+  border-color: rgba(24, 23, 23, 0.2) !important;
 }
 
 .social-icon-github:hover {

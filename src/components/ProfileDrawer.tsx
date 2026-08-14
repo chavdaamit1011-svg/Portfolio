@@ -92,6 +92,46 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
     localStorage.removeItem('portfolio_cover_media')
   }
 
+  // Touch swipe gesture logic to close drawer on mobile screen swipe (Right to Left or Left to Right)
+  const touchStartXRef = useRef<number | null>(null)
+  const touchStartYRef = useRef<number | null>(null)
+  const touchEndXRef = useRef<number | null>(null)
+  const touchEndYRef = useRef<number | null>(null)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.targetTouches[0].clientX
+    touchStartYRef.current = e.targetTouches[0].clientY
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndXRef.current = e.targetTouches[0].clientX
+    touchEndYRef.current = e.targetTouches[0].clientY
+  }
+
+  const handleTouchEnd = () => {
+    if (
+      touchStartXRef.current === null ||
+      touchEndXRef.current === null ||
+      touchStartYRef.current === null ||
+      touchEndYRef.current === null
+    ) {
+      return
+    }
+
+    const deltaX = touchEndXRef.current - touchStartXRef.current
+    const deltaY = touchEndYRef.current - touchStartYRef.current
+
+    // Trigger close if horizontal swipe is dominant and distance > 45px
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 45) {
+      handleClose()
+    }
+
+    touchStartXRef.current = null
+    touchEndXRef.current = null
+    touchStartYRef.current = null
+    touchEndYRef.current = null
+  }
+
   if (!shouldRender) return null
 
   return (
@@ -103,7 +143,12 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
       />
 
       {/* Floating Popover Single Unified Profile Panel Card */}
-      <div className={`profile-drawer-floating-card ${isClosing ? 'closing' : ''}`}>
+      <div 
+        className={`profile-drawer-floating-card ${isClosing ? 'closing' : ''}`}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="profile-drawer-scrollable h-100 d-flex flex-column">
           
           {/* Hidden File Input for Custom Image/Video Upload */}
@@ -284,7 +329,7 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
                   className="social-drawer-icon social-icon-github"
                   title="GitHub"
                 >
-                  <i className="bi bi-github"></i>
+                  <i className="bi bi-github text-github"></i>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/amit-chavda-9ab181355/"
@@ -293,7 +338,7 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
                   className="social-drawer-icon social-icon-linkedin"
                   title="LinkedIn"
                 >
-                  <i className="bi bi-linkedin"></i>
+                  <i className="bi bi-linkedin text-linkedin"></i>
                 </a>
                 <a
                   href="https://www.instagram.com/chavda_amit_111/"
@@ -302,7 +347,7 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
                   className="social-drawer-icon social-icon-instagram"
                   title="Instagram"
                 >
-                  <i className="bi bi-instagram"></i>
+                  <i className="bi bi-instagram text-instagram"></i>
                 </a>
                 <a
                   href="https://wa.me/919998320342"
@@ -311,7 +356,7 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
                   className="social-drawer-icon social-icon-whatsapp"
                   title="WhatsApp"
                 >
-                  <i className="bi bi-whatsapp"></i>
+                  <i className="bi bi-whatsapp text-whatsapp"></i>
                 </a>
               </div>
             </div>

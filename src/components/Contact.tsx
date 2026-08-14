@@ -99,7 +99,7 @@ export default function Contact() {
                 aria-label="GitHub"
                 title="GitHub"
               >
-                <i className="bi bi-github fs-5"></i>
+                <i className="bi bi-github fs-5 text-github"></i>
               </a>
               <a
                 href="https://www.linkedin.com/in/amit-chavda-9ab181355/"
@@ -110,7 +110,7 @@ export default function Contact() {
                 aria-label="LinkedIn"
                 title="LinkedIn"
               >
-                <i className="bi bi-linkedin fs-5"></i>
+                <i className="bi bi-linkedin fs-5 text-linkedin"></i>
               </a>
               <a
                 href="https://www.instagram.com/chavda_amit_111/"
@@ -121,7 +121,7 @@ export default function Contact() {
                 aria-label="Instagram"
                 title="Instagram"
               >
-                <i className="bi bi-instagram fs-5 text-danger"></i>
+                <i className="bi bi-instagram fs-5 text-instagram"></i>
               </a>
               <a
                 href="https://wa.me/919998320342"
@@ -132,7 +132,7 @@ export default function Contact() {
                 aria-label="WhatsApp"
                 title="WhatsApp"
               >
-                <i className="bi bi-whatsapp fs-5 text-success"></i>
+                <i className="bi bi-whatsapp fs-5 text-whatsapp"></i>
               </a>
             </div>
           </div>
