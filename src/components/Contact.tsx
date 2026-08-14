@@ -73,87 +73,92 @@ export default function Contact() {
         {/* 2-Column Row starting EXACTLY at Location Card & Contact Form Card */}
         <div className="row g-4 g-lg-5 align-items-start">
           {/* Left Column: Location, Email, Phone Cards + Social Icons */}
-          <div className="col-lg-5">
-            <div className="d-flex flex-column gap-3.5">
+          <div className="col-lg-5 mb-4 mb-lg-0">
+            <div className="d-flex flex-column gap-3 mb-4">
               {/* Location Card */}
-              <div className="custom-card p-3.5 d-flex align-items-center gap-3">
-                <div className="rounded-circle p-2.5 bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: '48px', height: '48px' }}>
+              <div className="custom-card p-3 d-flex align-items-center gap-3">
+                <div className="contact-icon-wrapper rounded-circle d-flex align-items-center justify-content-center text-primary bg-primary bg-opacity-10">
                   <i className="bi bi-geo-alt-fill fs-5"></i>
                 </div>
                 <div>
-                  <h5 className="fs-6 fw-bold text-custom-heading mb-1 font-heading">Location</h5>
-                  <p className="text-custom-muted small mb-0 fw-medium">Naroda, Ahmedabad, Gujarat - 382340</p>
+                  <h5 className="fs-6 fw-bold text-custom-heading mb-1">Location</h5>
+                  <p className="text-custom-muted small mb-0">Naroda, Ahmedabad, Gujarat - 382340</p>
                 </div>
               </div>
 
-              {/* Email Card (Clickable) */}
-              <div className="custom-card p-3.5 d-flex align-items-center gap-3">
-                <div className="rounded-circle p-2.5 bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: '48px', height: '48px' }}>
+              {/* Email Card */}
+              <div className="custom-card p-3 d-flex align-items-center gap-3">
+                <div className="contact-icon-wrapper rounded-circle d-flex align-items-center justify-content-center text-primary bg-primary bg-opacity-10">
                   <i className="bi bi-envelope-fill fs-5"></i>
                 </div>
                 <div>
-                  <h5 className="fs-6 fw-bold text-custom-heading mb-1 font-heading">Email</h5>
-                  <a href="mailto:chavdaamit1011@gmail.com" className="text-cyan small fw-semibold text-decoration-none hover-underline">
+                  <h5 className="fs-6 fw-bold text-custom-heading mb-1">Email</h5>
+                  <a href="mailto:chavdaamit1011@gmail.com" className="text-custom-muted small text-decoration-none hover-white mb-0 text-break d-block">
                     chavdaamit1011@gmail.com
                   </a>
                 </div>
               </div>
 
-              {/* Phone Card (Clickable) */}
-              <div className="custom-card p-3.5 d-flex align-items-center gap-3">
-                <div className="rounded-circle p-2.5 bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: '48px', height: '48px' }}>
+              {/* Phone Card */}
+              <div className="custom-card p-3 d-flex align-items-center gap-3">
+                <div className="contact-icon-wrapper rounded-circle d-flex align-items-center justify-content-center text-primary bg-primary bg-opacity-10">
                   <i className="bi bi-telephone-fill fs-5"></i>
                 </div>
                 <div>
-                  <h5 className="fs-6 fw-bold text-custom-heading mb-1 font-heading">Phone</h5>
-                  <a href="tel:+919998320342" className="text-cyan small fw-semibold text-decoration-none hover-underline">
+                  <h5 className="fs-6 fw-bold text-custom-heading mb-1">Phone</h5>
+                  <a href="tel:+919998320342" className="text-custom-muted small text-decoration-none hover-white mb-0">
                     +91-9998320342
                   </a>
                 </div>
               </div>
+            </div>
 
-              {/* Social Media Connect Row */}
-              <div className="custom-card p-3.5 text-center">
-                <h5 className="fs-6 fw-bold text-custom-heading mb-3 font-heading">Follow & Connect</h5>
-                <div className="d-flex justify-content-center align-items-center gap-3">
-                  <a
-                    href="https://github.com/chavdaamit1011-svg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-drawer-icon social-icon-github"
-                    title="GitHub"
-                  >
-                    <i className="bi bi-github fs-5 text-github"></i>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/amit-chavda-9ab181355/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-drawer-icon social-icon-linkedin"
-                    title="LinkedIn"
-                  >
-                    <i className="bi bi-linkedin fs-5 text-linkedin"></i>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/chavda_amit_111/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-drawer-icon social-icon-instagram"
-                    title="Instagram"
-                  >
-                    <i className="bi bi-instagram fs-5 text-instagram"></i>
-                  </a>
-                  <a
-                    href="https://wa.me/919998320342"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-drawer-icon social-icon-whatsapp"
-                    title="WhatsApp"
-                  >
-                    <i className="bi bi-whatsapp fs-5 text-whatsapp"></i>
-                  </a>
-                </div>
-              </div>
+            {/* Social Links (GitHub, LinkedIn, Instagram, WhatsApp) */}
+            <div className="d-flex justify-content-center justify-content-md-start align-items-center gap-3">
+              <a
+                href="https://github.com/chavdaamit1011-svg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
+                style={{ width: '45px', height: '45px' }}
+                aria-label="GitHub"
+                title="GitHub"
+              >
+                <i className="bi bi-github fs-5 text-github"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/amit-chavda-9ab181355/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
+                style={{ width: '45px', height: '45px' }}
+                aria-label="LinkedIn"
+                title="LinkedIn"
+              >
+                <i className="bi bi-linkedin fs-5 text-linkedin"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/chavda_amit_111/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
+                style={{ width: '45px', height: '45px' }}
+                aria-label="Instagram"
+                title="Instagram"
+              >
+                <i className="bi bi-instagram fs-5 text-instagram"></i>
+              </a>
+              <a
+                href="https://wa.me/919998320342"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="custom-card p-3 text-custom-heading text-decoration-none d-flex align-items-center justify-content-center rounded-circle"
+                style={{ width: '45px', height: '45px' }}
+                aria-label="WhatsApp"
+                title="WhatsApp"
+              >
+                <i className="bi bi-whatsapp fs-5 text-whatsapp"></i>
+              </a>
             </div>
           </div>
 
