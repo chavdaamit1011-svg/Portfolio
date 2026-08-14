@@ -29,6 +29,20 @@
   font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
 }
 
+/* Hide main browser scrollbar cleanly */
+html, body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
 [data-theme='light'] {
   --bg-color: #f5f8fc;
   --bg-secondary: #ffffff;

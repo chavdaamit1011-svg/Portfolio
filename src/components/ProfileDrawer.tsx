@@ -40,44 +40,29 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
     }, 300)
   }
 
-  // Touch swipe gesture logic to close drawer on mobile screen swipe (Right to Left or Left to Right)
+  // Touch swipe gesture logic to close drawer on mobile screen swipe
   const touchStartXRef = useRef<number | null>(null)
   const touchStartYRef = useRef<number | null>(null)
-  const touchEndXRef = useRef<number | null>(null)
-  const touchEndYRef = useRef<number | null>(null)
 
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartXRef.current = e.targetTouches[0].clientX
-    touchStartYRef.current = e.targetTouches[0].clientY
+    touchStartXRef.current = e.touches[0].clientX
+    touchStartYRef.current = e.touches[0].clientY
   }
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndXRef.current = e.targetTouches[0].clientX
-    touchEndYRef.current = e.targetTouches[0].clientY
-  }
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null || touchStartYRef.current === null) return
+    const endX = e.changedTouches[0].clientX
+    const endY = e.changedTouches[0].clientY
+    const deltaX = endX - touchStartXRef.current
+    const deltaY = endY - touchStartYRef.current
 
-  const handleTouchEnd = () => {
-    if (
-      touchStartXRef.current === null ||
-      touchEndXRef.current === null ||
-      touchStartYRef.current === null ||
-      touchEndYRef.current === null
-    ) {
-      return
-    }
-
-    const deltaX = touchEndXRef.current - touchStartXRef.current
-    const deltaY = touchEndYRef.current - touchStartYRef.current
-
-    // Trigger close if horizontal swipe is Right-to-Left (deltaX < -40px)
-    if (deltaX < -40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+    // Trigger close if horizontal swipe is Right-to-Left (deltaX < -45px)
+    if (deltaX < -45 && Math.abs(deltaX) > Math.abs(deltaY)) {
       handleClose()
     }
 
     touchStartXRef.current = null
-    touchEndXRef.current = null
     touchStartYRef.current = null
-    touchEndYRef.current = null
   }
 
   if (!shouldRender) return null
@@ -86,7 +71,7 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
     <>
       {/* Click outside Backdrop Overlay */}
       <div 
-        className={`profile-drawer-backdrop position-fixed vh-100 vw-100 ${isClosing ? 'fade-out' : 'fade-in'}`}
+        className={`profile-drawer-backdrop position-fixed vh-100 vw-100 ${isClosing ? 'closing' : ''}`}
         onClick={handleClose}
         style={{ zIndex: 99998 }}
       />
@@ -102,11 +87,10 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
         }}
       >
         <div 
-          className={`profile-drawer-floating-card rounded-4 shadow-2xl overflow-hidden d-flex flex-column ${isClosing ? 'popover-exit-left' : 'popover-enter-right'}`}
+          className={`profile-drawer-floating-card rounded-4 shadow-2xl overflow-hidden d-flex flex-column ${isClosing ? 'closing' : ''}`}
           style={{ cursor: 'default' }}
           onClick={(e) => e.stopPropagation()}
           onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
           <div className="profile-drawer-scrollable h-100 d-flex flex-column">
@@ -169,26 +153,25 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
               </button>
             </div>
 
-            {/* 2. PROFILE PHOTO (Overlapping 115px Circular Avatar) */}
-            <div className="profile-drawer-avatar-wrapper text-center px-4 flex-shrink-0" style={{ marginTop: '-48px' }}>
-              <div className="profile-avatar-ring d-inline-block">
-                <img 
-                  src={heroImg} 
-                  alt="Chavda Amit Profile" 
-                  className="profile-drawer-avatar img-fluid rounded-circle"
-                  style={{ width: '115px', height: '115px', border: 'none', boxShadow: 'none' }}
-                />
+            {/* SINGLE UNIFIED CONTENT PANEL */}
+            <div className="px-4 pb-4 d-flex flex-column flex-grow-1 justify-content-between gap-2.5">
+              
+              {/* 2. PROFILE PHOTO (Overlapping 115px Circular Avatar) */}
+              <div className="profile-drawer-avatar-wrapper text-center flex-shrink-0" style={{ marginTop: '-58px', marginBottom: '0.25rem' }}>
+                <div className="profile-avatar-ring d-inline-block">
+                  <img 
+                    src={heroImg} 
+                    alt="Chavda Amit Profile" 
+                    className="profile-drawer-avatar img-fluid rounded-circle"
+                    style={{ width: '115px', height: '115px', border: 'none', boxShadow: 'none' }}
+                  />
+                </div>
               </div>
-            </div>
-          </div>
 
-          {/* SINGLE UNIFIED CONTENT PANEL (No Nested Card Boxes!) */}
-          <div className="px-4 pt-2 pb-4 d-flex flex-column flex-grow-1 justify-content-between gap-3.5">
-            
-            {/* 3. NAME + ROLE + INTRO + AVAILABILITY */}
-            <div className="text-center">
-              {/* Name + Verified Badge */}
-              <h3 className="fs-3 fw-bold text-custom-heading mb-1 d-flex align-items-center justify-content-center gap-1.5 font-heading">
+              {/* 3. NAME + ROLE + INTRO + AVAILABILITY */}
+              <div className="text-center">
+                {/* Name + Verified Badge */}
+                <h3 className="fs-3 fw-bold text-custom-heading mb-1 d-flex align-items-center justify-content-center gap-1.5 font-heading">
                 Chavda Amit <i className="bi bi-patch-check-fill text-cyan fs-5" title="Verified Developer"></i>
               </h3>
               
@@ -321,6 +304,7 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
           </div>
         </div>
       </div>
-    </>
+    </div>
+  </>
   )
 }

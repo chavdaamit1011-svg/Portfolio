@@ -77,44 +77,35 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
     }
   }, [isMobileMenuOpen, isProfileDrawerOpen])
 
-  // Global Instant Right-to-Left Touch Swipe gesture to open Profile Drawer on Mobile screens
+  // Global Touch Swipe gesture to open Profile Drawer on Mobile screens
   useEffect(() => {
     let startX = 0
     let startY = 0
-    let isSwiping = false
 
     const handleGlobalTouchStart = (e: TouchEvent) => {
       if (isProfileDrawerOpen || e.touches.length > 1) return
       startX = e.touches[0].clientX
       startY = e.touches[0].clientY
-      isSwiping = true
     }
 
-    const handleGlobalTouchMove = (e: TouchEvent) => {
-      if (!isSwiping || isProfileDrawerOpen) return
-      const currentX = e.touches[0].clientX
-      const currentY = e.touches[0].clientY
-      const deltaX = currentX - startX
-      const deltaY = currentY - startY
+    const handleGlobalTouchEnd = (e: TouchEvent) => {
+      if (isProfileDrawerOpen) return
+      const endX = e.changedTouches[0].clientX
+      const endY = e.changedTouches[0].clientY
+      const deltaX = endX - startX
+      const deltaY = endY - startY
 
-      // Trigger ProfileDrawer open INSTANTLY on mobile when swiping Left-to-Right (finger moves right by > 40px)
-      if (deltaX > 40 && Math.abs(deltaX) > Math.abs(deltaY) && window.innerWidth <= 768) {
-        isSwiping = false
+      // Trigger ProfileDrawer open on mobile when swiping Left-to-Right (deltaX > 45px)
+      if (deltaX > 45 && Math.abs(deltaX) > Math.abs(deltaY) && window.innerWidth <= 768) {
         setIsProfileDrawerOpen(true)
       }
     }
 
-    const handleGlobalTouchEnd = () => {
-      isSwiping = false
-    }
-
     window.addEventListener('touchstart', handleGlobalTouchStart, { passive: true })
-    window.addEventListener('touchmove', handleGlobalTouchMove, { passive: true })
     window.addEventListener('touchend', handleGlobalTouchEnd, { passive: true })
 
     return () => {
       window.removeEventListener('touchstart', handleGlobalTouchStart)
-      window.removeEventListener('touchmove', handleGlobalTouchMove)
       window.removeEventListener('touchend', handleGlobalTouchEnd)
     }
   }, [isProfileDrawerOpen])
