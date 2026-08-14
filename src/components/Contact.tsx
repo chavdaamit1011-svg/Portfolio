@@ -41,9 +41,10 @@ export default function Contact() {
   return (
     <section id="contact" className="py-4 position-relative">
       <SEO 
-        title="Amit Chavda | Contact & Hire MERN Stack Developer"
-        description="Contact Amit Chavda for custom freelance web development, Next.js applications, and full-stack MERN web solutions."
-        keywords="Contact Amit Chavda, Hire MERN Developer, Hire Full Stack Developer, Freelance Web Developer"
+        title="Contact Amit Chavda | Web & Full Stack Developer"
+        description="Contact Amit Chavda for freelance web development projects, full-stack MERN applications, or software engineering job opportunities in Ahmedabad."
+        keywords="Contact Amit Chavda, Hire MERN Developer Ahmedabad, Hire React Developer Ahmedabad, Freelance Web Developer Ahmedabad"
+        canonicalUrl="https://chavdaamit.in/contact"
       />
       <div className="container py-2 max-w-6xl mx-auto">
         {/* Section Heading */}

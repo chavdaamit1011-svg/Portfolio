@@ -9,9 +9,10 @@ export default function Profile() {
   return (
     <section id="profile" className="py-4 position-relative">
       <SEO 
-        title="Amit Chavda | Full Stack Developer Profile"
-        description="Full Stack Web & Next.js Developer Profile for Amit Chavda. Specializing in MERN Stack, React, Next.js, and custom web development."
-        keywords="Amit Chavda Profile, Full Stack Developer Profile, MERN Stack Developer"
+        title="Amit Chavda | Developer Profile"
+        description="Developer profile and skills summary for Amit Chavda, MERN Stack & Full Stack Web Developer based in Ahmedabad, Gujarat."
+        keywords="Amit Chavda Profile, MERN Stack Developer Ahmedabad, Full Stack Web Developer Profile"
+        canonicalUrl="https://chavdaamit.in/profile"
       />
       <div className="container py-2 max-w-5xl mx-auto">
         {/* Section Heading */}

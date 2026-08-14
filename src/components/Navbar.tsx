@@ -139,26 +139,23 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             
             {/* PART 1: LEFT (Brand AC Logo + Vertical Separator Line |) */}
             <div className="d-flex align-items-center">
-              <div
+              <NavLink
                 className="navbar-brand p-0 m-0 d-flex align-items-center position-relative text-decoration-none"
-                onClick={(e) => {
-                  e.preventDefault()
-                  closeMobileMenu()
-                  setIsProfileDrawerOpen(true)
-                }}
-                style={{ cursor: 'pointer' }}
+                to="/profile"
+                onClick={closeMobileMenu}
+                aria-label="Amit Chavda Developer Profile"
                 title="Click to view Developer Profile"
               >
                 <div className="brand-logo-wrapper">
                   <img
                     src={logoAmit}
-                    alt="Chavda Amit AC Logo"
+                    alt="Amit Chavda Logo"
                     className="brand-logo-img"
                     loading="eager"
                     decoding="async"
                   />
                 </div>
-              </div>
+              </NavLink>
               <div className="nav-vertical-divider d-block"></div>
             </div>
 

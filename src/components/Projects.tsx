@@ -7,9 +7,10 @@ export default function Projects() {
   return (
     <section id="projects" className="py-4 position-relative">
       <SEO 
-        title="Amit Chavda | Web Development Projects & Portfolio"
-        description="Explore live full-stack web applications, e-commerce platforms, and React/Next.js projects built by Amit Chavda."
-        keywords="Amit Chavda Projects, MERN Stack Projects, React.js Portfolio, Next.js Web Apps"
+        title="Amit Chavda Projects | MERN, React, Node.js & AI Projects"
+        description="Explore live web development projects by Amit Chavda. E-commerce stores, international agency web apps, and full-stack MERN applications built with React & Node.js."
+        keywords="Amit Chavda Projects, MERN Stack Projects, React.js Web Applications, E-Commerce Development Ahmedabad"
+        canonicalUrl="https://chavdaamit.in/projects"
       />
       <div className="container py-2">
         {/* Section Heading */}

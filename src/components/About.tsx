@@ -156,9 +156,10 @@ export default function About() {
   return (
     <section id="about" className="py-4 position-relative">
       <SEO 
-        title="Amit Chavda | About Me & Career Experience"
-        description="Learn about Amit Chavda - MERN Stack Developer & Full Stack Web Developer specializing in React.js, Next.js, and Node.js. Currently developing at Kalpit Evolution."
-        keywords="About Amit Chavda, MERN Stack Developer, Full Stack Developer, Kalpit Evolution Developer"
+        title="About Amit Chavda | MERN Stack Developer in Ahmedabad"
+        description="Learn about Amit Chavda, a MERN Stack & Full Stack Developer in Ahmedabad. Discover career experience at Kalpit Evolution, tech stack, and background."
+        keywords="About Amit Chavda, MERN Stack Developer Ahmedabad, Kalpit Evolution Developer, Full Stack Web Developer Ahmedabad"
+        canonicalUrl="https://chavdaamit.in/about"
       />
       <div className="container py-2">
         {/* Section Heading */}

@@ -48,9 +48,10 @@ export default function Hero() {
       style={{ paddingTop: '100px', paddingBottom: '60px' }}
     >
       <SEO 
-        title="Amit Chavda | MERN Stack Developer & Full Stack Developer"
-        description="Amit Chavda is a MERN Stack Developer and Full Stack Web Developer building high-performance web applications using React.js, Next.js, Node.js, Express, and MongoDB."
-        keywords="Amit Chavda, MERN Stack Developer, Full Stack Developer, React.js Developer, Next.js Developer, Node.js Developer, Portfolio"
+        title="Amit Chavda | MERN Stack Developer & Web Developer in Ahmedabad"
+        description="Amit Chavda is a MERN Stack Developer and Full Stack Web Developer based in Ahmedabad, Gujarat. Specializing in React.js, Next.js, Node.js, Express, and MongoDB applications."
+        keywords="Amit Chavda, MERN Stack Developer Ahmedabad, Full Stack Developer Ahmedabad, React Developer Ahmedabad, Node.js Developer Ahmedabad, Web Developer Ahmedabad"
+        canonicalUrl="https://chavdaamit.in/"
       />
 
       <div className="bg-ambient-light" style={{ top: '20%', left: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}></div>
@@ -67,10 +68,14 @@ export default function Hero() {
           CHAVDA <span className="text-gradient-cyan-purple">AMIT</span>
         </h1>
 
-        <div className="fs-3 text-custom-heading font-medium mb-4 min-h-12 d-flex align-items-center justify-content-center text-center w-100">
+        <div className="fs-3 text-custom-heading font-medium mb-3 min-h-12 d-flex align-items-center justify-content-center text-center w-100">
           <span>{text}</span>
           <span className="typing-cursor"></span>
         </div>
+
+        <p className="text-custom-muted fs-6 mb-4 mx-auto lh-base" style={{ maxWidth: '640px' }}>
+          MERN Stack & Full Stack Web Developer based in Ahmedabad, Gujarat. Building high-performance React.js, Next.js, Node.js, and AI-driven web applications.
+        </p>
 
         {/* Perfectly Balanced Symmetrical Center Aligned Buttons Trio */}
         <div className="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-3 mb-4 w-100 mx-auto">

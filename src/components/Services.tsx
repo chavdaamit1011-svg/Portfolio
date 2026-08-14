@@ -39,9 +39,10 @@ export default function Services() {
   return (
     <section id="services" className="py-4 position-relative">
       <SEO 
-        title="Amit Chavda | Full Stack & Freelance Development Services"
-        description="Custom web development, full-stack Next.js applications, React frontend engineering, and freelance web development services by Amit Chavda."
-        keywords="Amit Chavda Services, Freelance Web Developer, Next.js Development, Full Stack Web Development"
+        title="Web Development Services | React, MERN & AI | Amit Chavda"
+        description="Professional web development services in Ahmedabad by Amit Chavda. Custom MERN stack applications, Next.js frontend, Node.js backends, and AI application integration."
+        keywords="Web Development Services Ahmedabad, Freelance Web Developer Ahmedabad, React Developer Ahmedabad, MERN Stack Developer Services"
+        canonicalUrl="https://chavdaamit.in/services"
       />
       <div className="container py-2 max-w-4xl mx-auto">
         {/* Section Heading */}
