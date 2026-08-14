@@ -77,6 +77,38 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
     }
   }, [isMobileMenuOpen, isProfileDrawerOpen])
 
+  // Global Right-to-Left Touch Swipe gesture to open Profile Drawer on Mobile screens
+  useEffect(() => {
+    let startX = 0
+    let startY = 0
+
+    const handleGlobalTouchStart = (e: TouchEvent) => {
+      startX = e.touches[0].clientX
+      startY = e.touches[0].clientY
+    }
+
+    const handleGlobalTouchEnd = (e: TouchEvent) => {
+      if (isProfileDrawerOpen) return
+      const endX = e.changedTouches[0].clientX
+      const endY = e.changedTouches[0].clientY
+      const deltaX = endX - startX
+      const deltaY = endY - startY
+
+      // Trigger ProfileDrawer open on mobile when swiping Right-to-Left (deltaX < -50px)
+      if (Math.abs(deltaX) > Math.abs(deltaY) && deltaX < -50 && window.innerWidth <= 768) {
+        setIsProfileDrawerOpen(true)
+      }
+    }
+
+    window.addEventListener('touchstart', handleGlobalTouchStart, { passive: true })
+    window.addEventListener('touchend', handleGlobalTouchEnd, { passive: true })
+
+    return () => {
+      window.removeEventListener('touchstart', handleGlobalTouchStart)
+      window.removeEventListener('touchend', handleGlobalTouchEnd)
+    }
+  }, [isProfileDrawerOpen])
+
   return (
     <>
       {/* Click-outside backdrop overlay when mobile menu is expanded */}

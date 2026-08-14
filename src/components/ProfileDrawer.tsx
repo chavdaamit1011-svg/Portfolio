@@ -278,7 +278,7 @@ export default function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
                     </div>
                     <span className="small fw-semibold text-custom-heading">Location</span>
                   </div>
-                  <span className="small text-custom-muted text-end fw-medium ps-2">Naroda, Ahmedabad</span>
+                  <span className="small text-custom-muted text-end fw-medium ps-2">Naroda, Ahmedabad - 382340</span>
                 </div>
 
                 {/* ✉️ Email (Clickable) */}

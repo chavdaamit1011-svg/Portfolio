@@ -57,7 +57,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h5 className="fs-6 fw-bold text-custom-heading mb-1">Location</h5>
-                  <p className="text-custom-muted small mb-0">Nikol, Ahmedabad, Gujarat, India</p>
+                  <p className="text-custom-muted small mb-0">Naroda, Ahmedabad, Gujarat - 382340</p>
                 </div>
               </div>
 

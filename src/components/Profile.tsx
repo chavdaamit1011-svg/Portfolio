@@ -68,7 +68,7 @@ export default function Profile() {
                       <div className="rounded-circle p-2 bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center" style={{ width: '36px', height: '36px' }}>
                         <i className="bi bi-geo-alt-fill"></i>
                       </div>
-                      <span className="small fw-medium">Nikol, Ahmedabad, Gujarat, India</span>
+                      <span className="small fw-medium">Naroda, Ahmedabad, Gujarat - 382340</span>
                     </div>
                   </div>
                   <div className="col-sm-6">

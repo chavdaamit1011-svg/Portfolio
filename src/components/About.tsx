@@ -293,7 +293,7 @@ export default function About() {
                     >
                       <i className="bi bi-linkedin text-primary me-1"></i>Kalpit Evolution <i className="bi bi-box-arrow-up-right x-small"></i>
                     </a>
-                    <span className="text-custom-muted font-normal">• Nikol, Ahmedabad</span>
+                    <span className="text-custom-muted font-normal">• Naroda, Ahmedabad - 382340</span>
                   </p>
                 </div>
               </div>
